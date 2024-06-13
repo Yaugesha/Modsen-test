@@ -6,6 +6,18 @@
     "target": "ES5",
     "jsx": "react",
     "strict": true,
-    "moduleResolution": "node"
-  }
+    "moduleResolution": "node",
+
+    "baseUrl": "./",
+    "paths": {
+      "@assets/*": ["src/assets/*"],
+      "@components/*": ["src/components/*"],
+      "@constants/*": ["src/constants/*"],
+      "@pages/*": ["src/pages/*"],
+      "@store/*": ["src/store/*"],
+      "@utils/*": ["src/utils/*"]
+    }
+  },
+  "include": ["src"],
+  "exclude": ["node_modules"]
 }
