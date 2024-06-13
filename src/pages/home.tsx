@@ -1,5 +1,29 @@
+import { useGetProductsQuery } from '@services/shopApi';
+import { Product } from '@utils/types';
+
 const Home = () => {
-  return <div>Hellow World</div>;
+  const { data, isLoading, isError } = useGetProductsQuery(6);
+
+  return (
+    <div>
+      {isLoading && <div>Loading...</div>}
+      {isError && <div>Something went wrong</div>}
+      {data && (
+        <ul>
+          {data.slice(0, 5).map((product: Product) => {
+            return <li key={product.id}>{product.title}</li>;
+          })}
+        </ul>
+      )}
+      {data && (
+        <ul>
+          {data.map((product: Product) => {
+            return <li key={product.id}>{product.title}</li>;
+          })}
+        </ul>
+      )}
+    </div>
+  );
 };
 
 export default Home;

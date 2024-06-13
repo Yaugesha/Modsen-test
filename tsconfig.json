@@ -4,7 +4,7 @@
     "noImplicitAny": true,
     "module": "ESNext",
     "target": "ES5",
-    "jsx": "react",
+    "jsx": "react-jsx",
     "strict": true,
     "moduleResolution": "node",
 
@@ -14,6 +14,7 @@
       "@components/*": ["src/components/*"],
       "@constants/*": ["src/constants/*"],
       "@pages/*": ["src/pages/*"],
+      "@services/*": ["src/services/*"],
       "@store/*": ["src/store/*"],
       "@utils/*": ["src/utils/*"]
     }
