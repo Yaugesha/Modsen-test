@@ -11,8 +11,10 @@ const GlobalStyle = createGlobalStyle`
 
   body {
     font-family: 'DM Sans', sans-serif;
+    color: ${props => props.theme.secondary};
 
     max-width: 1440px;
+    padding: 64px 96px 16px;
     margin: 0 auto;
   }
 `;
@@ -37,4 +39,33 @@ const darkTheme = {
   error: '#d82700',
 };
 
-export { GlobalStyle, lightTheme, darkTheme };
+const typography = {
+  typography: {
+    h1: {
+      fontWeight: 500,
+      fontSize: '33px',
+    },
+    h2: {
+      fontWeight: 400,
+      fontSize: '26px',
+      lineHeight: '35px',
+    },
+    h3: {
+      fontWeight: 400,
+      fontSize: '20px',
+      lineHeight: '26px',
+    },
+    h4: {
+      fontWeight: 500,
+      fontSize: '20px',
+      lineHeight: '20px',
+    },
+    h5: {
+      fontWeight: 400,
+      fontSize: '16px',
+      lineHeight: '27px',
+    },
+  },
+};
+
+export { GlobalStyle, lightTheme, darkTheme, typography };

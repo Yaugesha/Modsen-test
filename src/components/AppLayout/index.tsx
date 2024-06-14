@@ -1,11 +1,12 @@
-import Header from '@components/Header/index';
 import { Outlet } from 'react-router-dom';
 import { ThemeProvider } from 'styled-components';
-import { GlobalStyle, lightTheme } from './styled';
+import { GlobalStyle, lightTheme, typography } from './styled';
+import Header from '@components/Header/index';
 
 const AppLayout = () => {
   const theme = {
     ...lightTheme,
+    ...typography,
   };
 
   return (

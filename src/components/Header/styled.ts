@@ -7,7 +7,6 @@ const StyledHeader = styled.header`
 
   max-width: 1248px;
   height: 42px;
-  margin: 64px 96px 16px;
 `;
 
 const Logo = styled.img`
@@ -23,7 +22,7 @@ const Menu = styled.div`
   width: 376px;
 `;
 
-const NavList = styled.nav`
+const NavList = styled.ul`
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -32,6 +31,7 @@ const NavList = styled.nav`
 
   width: 182px;
   margin: 0;
+  padding: 0;
 `;
 
 const NavItem = styled.li`
