@@ -14,6 +14,8 @@ const SliderContent = styled.div`
   position: absolute;
   display: flex;
   gap: 64px;
+
+  transition: left 0.5s;
 `;
 
 const ImageWrapper = styled.div`
@@ -45,19 +47,19 @@ const SliderPagination = styled.div`
 const paginationItemActive = css`
   width: 16px;
   height: 16px;
+  border: 2px solid ${props => props.theme.accent};
 `;
 
 const paginationItemInactive = css`
   width: 10px;
   height: 10px;
+  background-color: ${props => props.theme.accent};
+  cursor: pointer;
 `;
 
-const PaginationItem = styled.div<{ isactive?: boolean }>`
-  ${props => (props.isactive ? paginationItemActive : paginationItemInactive)}
+const PaginationItem = styled.div<{ isActive: boolean }>`
+  ${props => (props.isActive ? paginationItemActive : paginationItemInactive)}
   border-radius: 99px;
-  background-color: ${props => props.theme.main};
-
-  cursor: pointer;
 `;
 
 export {

@@ -17,7 +17,7 @@ const Home = () => {
     <div>
       {isLoading && <div>Loading...</div>}
       {isError && <div>Something went wrong</div>}
-      {data && <Slider products={data.slice(0, 5)} />}
+      {data && <Slider items={data.slice(0, 5)} />}
       <ProductSection>
         <SectionHeader>
           <SectionHeading>Shop the latest</SectionHeading>

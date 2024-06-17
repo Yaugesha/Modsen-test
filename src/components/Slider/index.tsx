@@ -7,34 +7,52 @@ import {
   SliderPagination,
   PaginationItem,
 } from './styled';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
-interface Products {
-  products: Product[];
+interface Items {
+  items: Product[];
 }
 
-const Slider = ({ products }: Products) => {
-  const [currentItem, setCurrentItem] = useState<Product>(products[0]);
+const Slider = ({ items }: Items) => {
+  const [currentItem, setCurrentItem] = useState<Product>(items[0]);
 
-  const toggleSlider = (product: Product) => {
-    setCurrentItem(product);
+  useEffect(() => {
+    const interval = setTimeout(autoScroll, 3000);
+    return () => clearInterval(interval);
+  }, [currentItem]);
+
+  const toggleSlide = (item: Product) => {
+    const slider = document.querySelector('.slider') as HTMLElement;
+    slider.style.left = `-${Math.abs(1 - item.id) * 1312}px`;
+    setCurrentItem(item);
+  };
+
+  const autoScroll = () => {
+    const slider = document.querySelector('.slider') as HTMLElement;
+    if (currentItem.id !== items.length) {
+      slider.style.left = `-${currentItem.id * 1312}px`;
+      setCurrentItem(items[currentItem.id]);
+    } else {
+      slider.style.left = '0px';
+      setCurrentItem(items[0]);
+    }
   };
 
   return (
     <SliderWrapper>
-      <SliderContent>
-        {products.map((product: Product) => (
-          <ImageWrapper key={product.id}>
-            <Image src={product.image} alt={product.title} />
+      <SliderContent className="slider">
+        {items.map((item: Product) => (
+          <ImageWrapper key={item.id}>
+            <Image src={item.image} alt={item.title} />
           </ImageWrapper>
         ))}
       </SliderContent>
       <SliderPagination>
-        {products.map((product: Product) => (
+        {items.map((item: Product) => (
           <PaginationItem
-            key={product.id}
-            onClick={() => toggleSlider(product)}
-            isactive={currentItem.id === product.id}
+            isActive={currentItem.id === item.id}
+            key={item.id}
+            onClick={() => toggleSlide(item)}
           />
         ))}
       </SliderPagination>
