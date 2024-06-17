@@ -13,14 +13,14 @@ const GlobalStyle = createGlobalStyle`
     font-family: 'DM Sans', sans-serif;
     color: ${props => props.theme.secondary};
 
-    max-width: 1440px;
+    max-width: 1248px;
     padding: 64px 96px 16px;
     margin: 0 auto;
   }
 `;
 
 const lightTheme = {
-  accent: '#f18a168',
+  accent: '#a18a68',
   main: '#ffffff',
   secondary: '#000000',
   darkGrey: '#707070',
@@ -30,7 +30,7 @@ const lightTheme = {
 };
 
 const darkTheme = {
-  accent: '#f18a68',
+  accent: '#a18a68',
   secondary: '#ffffff',
   main: '#000000',
   lightGrey: '#707070',
@@ -64,6 +64,19 @@ const typography = {
       fontWeight: 400,
       fontSize: '16px',
       lineHeight: '27px',
+    },
+    l: {
+      fontWeight: 700,
+      fontSize: '16px',
+    },
+    m: {
+      fontWeight: 400,
+      fontSize: '14px',
+    },
+    s: {
+      fontWeight: 400,
+      fontSize: '12px',
+      lineHeight: '20px',
     },
   },
 };
