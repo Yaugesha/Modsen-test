@@ -13,7 +13,7 @@ const StyledInput = styled.input`
   ${props => props.theme.typography.h5}
   color: ${props => props.theme.secondary};
 
-  padding-bottom: 6px;
+  padding: 0px 0px 6px;
   width: 100%;
 `;
 

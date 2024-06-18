@@ -2,7 +2,7 @@ import styled, { css } from 'styled-components';
 
 const SelectContainer = styled.div`
   position: relative;
-  width: 262px;
+  width: 100%;
   height: 54px;
 `;
 
@@ -17,7 +17,6 @@ const SelectButton = styled.div`
   border-radius: 4px;
 
   padding: 14px 12px;
-  width: 238px;
   height: 24px;
 
   cursor: pointer;
@@ -34,6 +33,8 @@ const Chevron = styled.img<{ selected: boolean }>`
 `;
 
 const SelectOptions = styled.ul`
+  position: relative;
+
   background-color: ${props => props.theme.main};
   border: 1px solid ${props => props.theme.grey};
   border-radius: 4px;

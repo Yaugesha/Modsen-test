@@ -1,18 +1,18 @@
 import styled from 'styled-components';
 
-const Card = styled.div`
+const Card = styled.div<{ width: number; height: number }>`
   display: flex;
   flex-flow: column;
   align-items: start;
   justify-content: space-between;
 
-  width: 380px;
-  height: 472px;
+  width: ${props => props.width}px;
+  height: ${props => props.height}px;
 `;
 
-const Action = styled.div`
+const Action = styled.div<{ top: number }>`
   position: absolute;
-  top: 380px;
+  top: ${props => props.top}px;
 
   display: flex;
   align-items: center;
@@ -24,12 +24,12 @@ const Action = styled.div`
   background-color: rgba(256, 256, 256, 0.5);
 
   height: 64px;
-  width: 380px;
+  width: 100%;
 
   transition: top 0.4s;
 `;
 
-const ImageContainer = styled.div`
+const ImageContainer = styled.div<{ size: number }>`
   position: relative;
   display: flex;
   align-items: center;
@@ -37,20 +37,20 @@ const ImageContainer = styled.div`
 
   overflow: hidden;
 
-  height: 380px;
-  width: 380px;
+  height: ${props => props.size}px;
+  width: ${props => props.size}px;
 
   &:hover ${Action} {
-    top: 316px;
+    top: ${props => props.size - 64}px;
   }
 `;
 
-const Image = styled.img`
+const Image = styled.img<{ size: number }>`
   align-self: center;
   border-radius: 8px;
 
-  max-height: 380px;
-  max-width: 380px;
+  max-height: ${props => props.size}px;
+  max-width: ${props => props.size}px;
 `;
 
 const Title = styled.p`
@@ -60,7 +60,7 @@ const Title = styled.p`
   ${props => props.theme.typography.h3}
   text-overflow: ellipsis;
 
-  width: 380px;
+  width: 100%;
   margin: 0;
 `;
 

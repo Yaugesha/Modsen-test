@@ -3,16 +3,18 @@ import { Card, Image, ImageContainer, Price, Title, Action } from './styled';
 
 interface ProductCard {
   product: Product;
+  width: number;
+  height: number;
 }
 
-const ProductCard = ({ product }: ProductCard) => {
+const ProductCard = ({ product, width, height }: ProductCard) => {
   const fullCost = (price: number) => price.toFixed(2);
 
   return (
-    <Card>
-      <ImageContainer>
-        <Image src={product.image} alt={product.title} />
-        <Action>
+    <Card width={width} height={height}>
+      <ImageContainer size={width}>
+        <Image size={width} src={product.image} alt={product.title} />
+        <Action top={width}>
           <span>Add to cart</span>
         </Action>
       </ImageContainer>

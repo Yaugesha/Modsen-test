@@ -39,7 +39,7 @@ const RangeBorder = styled.div<{ position: string }>`
 
 const RangeInfo = styled.div`
   display: flex;
-  flex-flow: row wrap;
+  flex-flow: row;
   justify-content: space-between;
 
   margin-top: 16px;
