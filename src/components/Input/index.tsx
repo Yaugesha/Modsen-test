@@ -2,9 +2,12 @@ import { StyledInput, InputWrapper, InputButton } from './styled';
 
 interface InputProps {
   inputHandler: React.ChangeEventHandler<HTMLInputElement>;
-  placeholder: string;
+  placeholder?: string;
+  defaultValue?: string | number;
+  value?: string | number;
+  id?: string;
   type: string;
-  buttonImage: string;
+  buttonImage?: string;
 }
 
 const Input = ({
@@ -12,6 +15,9 @@ const Input = ({
   placeholder,
   type,
   buttonImage,
+  defaultValue,
+  value,
+  id,
 }: InputProps) => {
   return (
     <InputWrapper>
@@ -19,8 +25,11 @@ const Input = ({
         type={type}
         placeholder={placeholder}
         onChange={inputHandler}
+        defaultValue={defaultValue}
+        value={value}
+        id={id}
       />
-      <InputButton src={buttonImage} alt="search" />
+      {buttonImage && <InputButton src={buttonImage} alt="action" />}
     </InputWrapper>
   );
 };
