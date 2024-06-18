@@ -21,13 +21,20 @@ const Home = () => {
       <ProductSection>
         <SectionHeader>
           <SectionHeading>Shop the latest</SectionHeading>
-          <Link to="/">View all</Link>
+          <Link to="/shop">View all</Link>
         </SectionHeader>
         <div>
           {data && (
             <SectionContent>
               {data.map((product: Product) => {
-                return <ProductCard product={product} key={product.id} />;
+                return (
+                  <ProductCard
+                    width={380}
+                    height={472}
+                    product={product}
+                    key={product.id}
+                  />
+                );
               })}
             </SectionContent>
           )}
