@@ -12,7 +12,7 @@ export const shopApi = createApi({
     getProducts: builder.query<Product[], number>({
       query: limit => ({
         url: `products`,
-        params: [limit],
+        params: { limit },
       }),
     }),
     getProduct: builder.query<Product, number>({
@@ -21,7 +21,7 @@ export const shopApi = createApi({
     getPriceSortedProducts: builder.query<Product[], string>({
       query: sort => ({
         url: `products`,
-        params: [sort],
+        params: { sort },
       }),
     }),
     getCategorySortedProducts: builder.query<Product[], string>({
@@ -33,7 +33,7 @@ export const shopApi = createApi({
     >({
       query: ({ category, sort }) => ({
         url: `products/category/${category}`,
-        params: [sort],
+        params: { sort },
       }),
     }),
   }),
