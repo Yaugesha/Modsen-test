@@ -5,12 +5,69 @@ interface DraggingState {
   max: boolean;
 }
 
+interface RangeElements {
+  rangeLine: RefObject<HTMLDivElement>;
+  minValBorder: RefObject<HTMLDivElement>;
+  maxValBorder: RefObject<HTMLDivElement>;
+  currentRangeLine: RefObject<HTMLDivElement>;
+}
+
 const countRangeBorderValue = (
   length: number,
   maxRangeValue: number,
   rangeLineWidth: number,
 ): number => {
   return Number(((maxRangeValue * length) / rangeLineWidth).toFixed(2));
+};
+
+const countRangelength = (
+  length: number,
+  rangeValue: number,
+  maxRangeValue: number,
+): number => {
+  return (length * rangeValue) / maxRangeValue;
+};
+
+const countRangeBorder = (
+  length: number,
+  maxRangeValue: number,
+  rangeValue: number,
+): number => {
+  return (length * rangeValue) / maxRangeValue;
+};
+
+const handleInputMinValueForLine = (
+  maxRangeValue: number,
+  rangeElements: RangeElements,
+  newMinvalue: number,
+  maxValue: number,
+) => {
+  const { rangeLine, minValBorder, currentRangeLine } = { ...rangeElements };
+  const newBorder = countRangeBorder(
+    rangeLine.current!.offsetWidth,
+    maxRangeValue,
+    newMinvalue,
+  );
+  currentRangeLine.current!.style.left = `${newBorder}px`;
+  minValBorder.current!.style.left = `${newBorder}px`;
+  currentRangeLine.current!.style.width = `${countRangelength(rangeLine.current!.offsetWidth, maxValue - newMinvalue, maxRangeValue)}px`;
+};
+
+const handleInputMaxValueForLine = (
+  maxRangeValue: number,
+  rangeElements: RangeElements,
+  newMaxvalue: number,
+  minValue: number,
+) => {
+  const { rangeLine, maxValBorder, currentRangeLine } = { ...rangeElements };
+  const newBorder = countRangeBorder(
+    rangeLine.current!.offsetWidth,
+    maxRangeValue,
+    newMaxvalue,
+  );
+  currentRangeLine.current!.style.width = `${countRangelength(rangeLine.current!.offsetWidth, newMaxvalue - minValue, maxRangeValue)}px`;
+  currentRangeLine.current!.style.right = `${currentRangeLine.current!.offsetWidth - newBorder}px`;
+  maxValBorder.current!.style.left = `${newBorder}px`;
 };
 
 const handleInputMinValue = (
@@ -20,6 +77,7 @@ const handleInputMinValue = (
   maxValue: number,
 ) => {
   const value = Number(e.target.value);
+
   if (value > maxValue) {
     setMinValue(maxValue);
     setMaxValue(value);
@@ -47,13 +105,13 @@ const handleMouseMove = (
   e: MouseEvent,
   isDragging: DraggingState,
   maxRangeValue: number,
-  rangeLine: RefObject<HTMLDivElement>,
-  currentRangeLine: RefObject<HTMLDivElement>,
-  minValBorder: RefObject<HTMLDivElement>,
-  maxValBorder: RefObject<HTMLDivElement>,
+  rangeElements: RangeElements,
   setMinValue: (value: number) => void,
   setMaxValue: (value: number) => void,
 ) => {
+  const { rangeLine, maxValBorder, minValBorder, currentRangeLine } = {
+    ...rangeElements,
+  };
   const rangeLineX = rangeLine.current!.getBoundingClientRect().x;
   const rangeLineWidth = rangeLine.current!.offsetWidth;
   const length = e.clientX - rangeLineX;
@@ -65,13 +123,7 @@ const handleMouseMove = (
     minValBorder.current!.style.left = `${length}px`;
     currentRangeLine.current!.style.left = `${length}px`;
     currentRangeLine.current!.style.width = `${currentRangeLineWidth - (e.clientX - currentRangeLineX)}px`;
-    setMinValue(
-      countRangeBorderValue(
-        length,
-        maxRangeValue,
-        rangeLine.current!.offsetWidth,
-      ),
-    );
+    setMinValue(countRangeBorderValue(length, maxRangeValue, rangeLineWidth));
   }
   if (isDragging.max) {
     const newWidth =
@@ -107,4 +159,7 @@ export {
   handleMouseUp,
   handleChangeMinBorder,
   handleChangeMaxBorder,
+  handleInputMaxValueForLine,
+  handleInputMinValueForLine,
+  RangeElements,
 };

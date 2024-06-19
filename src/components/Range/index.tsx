@@ -16,6 +16,9 @@ import {
   handleMouseUp,
   handleChangeMinBorder,
   handleChangeMaxBorder,
+  handleInputMaxValueForLine,
+  handleInputMinValueForLine,
+  RangeElements,
 } from '@utils/rangeInputHandlers';
 
 interface RangeProps {
@@ -35,16 +38,20 @@ const Range = ({ range }: RangeProps) => {
   const minValBorder = useRef<HTMLDivElement>(null);
   const maxValBorder = useRef<HTMLDivElement>(null);
 
+  const rangeElements = {
+    rangeLine,
+    minValBorder,
+    maxValBorder,
+    currentRangeLine,
+  };
+
   useEffect(() => {
     const handleMove = (e: MouseEvent) =>
       handleMouseMove(
         e,
         isDragging,
         range[1],
-        rangeLine,
-        currentRangeLine,
-        minValBorder,
-        maxValBorder,
+        rangeElements as RangeElements,
         setMinValue,
         setMaxValue,
       );
@@ -85,9 +92,15 @@ const Range = ({ range }: RangeProps) => {
             id="from"
             type="number"
             value={minValue}
-            inputHandler={e =>
-              handleInputMinValue(e, setMinValue, setMaxValue, maxValue)
-            }
+            inputHandler={e => {
+              handleInputMinValue(e, setMinValue, setMaxValue, maxValue);
+              handleInputMinValueForLine(
+                range[1],
+                rangeElements as RangeElements,
+                minValue,
+                maxValue,
+              );
+            }}
           />
         </RangeInput>
         <RangeInput>
@@ -96,9 +109,15 @@ const Range = ({ range }: RangeProps) => {
             id="to"
             type="number"
             value={maxValue}
-            inputHandler={e =>
-              handleInputMaxValue(e, setMinValue, setMaxValue, minValue)
-            }
+            inputHandler={e => {
+              handleInputMaxValue(e, setMinValue, setMaxValue, minValue);
+              handleInputMaxValueForLine(
+                range[1],
+                rangeElements as RangeElements,
+                maxValue,
+                minValue,
+              );
+            }}
           />
         </RangeInput>
       </RangeInfo>
