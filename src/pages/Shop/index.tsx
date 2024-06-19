@@ -1,6 +1,10 @@
 import { useEffect, useState } from 'react';
 import { Product } from '@utils/types';
-import { useGetAllProductsQuery } from '@services/shopApi';
+import {
+  useGetAllProductsQuery,
+  useLazyGetPriceSortedProductsQuery,
+  useLazyGetCategorySortedProductsQuery,
+} from '@services/shopApi';
 import Filters from '@components/Filters';
 import ProductCard from '@components/ProductCard';
 import { Heading, SectionContent, CardsContainer } from './styled';
@@ -16,8 +20,24 @@ const Shop = () => {
 
   const { data, isLoading, isError } = useGetAllProductsQuery('products\\');
 
+  const [triggerGetPriceSortedProducts, {}] =
+    useLazyGetPriceSortedProductsQuery();
+
+  const [triggerGetCategorySortedProducts, {}] =
+    useLazyGetCategorySortedProductsQuery();
+
   const handleInputSearch: React.ChangeEventHandler<HTMLInputElement> = e => {
     setItem(e.target.value);
+  };
+
+  const filteredProducts = (): Array<Product> => {
+    return products
+      .filter(product =>
+        product.title.toLowerCase().includes(searchItem.toLowerCase()),
+      )
+      .filter(
+        product => product.price >= minValue && product.price <= maxValue,
+      );
   };
 
   useEffect(() => {
@@ -34,14 +54,22 @@ const Shop = () => {
   }, [data]);
 
   useEffect(() => {
-    if (data) {
-      setProducts(
-        data.filter(
-          product => product.price >= minValue && product.price <= maxValue,
-        ),
-      );
-    }
-  }, [minValue, maxValue]);
+    const fetchProducts = async () => {
+      const sortedProducts = await triggerGetPriceSortedProducts(sortBy);
+      setProducts(sortedProducts.data!);
+    };
+
+    if (data) fetchProducts();
+  }, [sortBy]);
+
+  useEffect(() => {
+    const fetchProducts = async () => {
+      const sortedProducts = await triggerGetCategorySortedProducts(shopBy);
+      setProducts(sortedProducts.data!);
+    };
+
+    if (data) fetchProducts();
+  }, [shopBy]);
 
   return (
     <>
@@ -51,9 +79,7 @@ const Shop = () => {
           handleInputSearch={handleInputSearch}
           products={data ?? []}
           priceRange={[0, 1000]}
-          sortBy={sortBy}
           setSortBy={setSortBy}
-          shopBy={shopBy}
           setShopBy={setShopBy}
           minValue={minValue}
           setMinValue={setMinValue}
@@ -63,9 +89,9 @@ const Shop = () => {
         <>
           {isLoading && <div>Loading...</div>}
           {isError && <div>Something went wrong</div>}
-          {data && (
+          {filteredProducts() ? (
             <CardsContainer>
-              {products.map((product: Product) => {
+              {filteredProducts().map((product: Product) => {
                 return (
                   <ProductCard
                     width={300}
@@ -76,6 +102,8 @@ const Shop = () => {
                 );
               })}
             </CardsContainer>
+          ) : (
+            <div> No products match search result</div>
           )}
         </>
       </SectionContent>

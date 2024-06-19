@@ -25,7 +25,7 @@ export const shopApi = createApi({
       }),
     }),
     getCategorySortedProducts: builder.query<Product[], string>({
-      query: category => `products/category/${category}'`,
+      query: category => `products/category/${category}`,
     }),
     getPriceAndCategorySortedProducts: builder.query<
       Product[],
@@ -45,4 +45,6 @@ export const {
   useGetProductQuery,
   useGetPriceSortedProductsQuery,
   useGetCategorySortedProductsQuery,
+  useLazyGetPriceSortedProductsQuery,
+  useLazyGetCategorySortedProductsQuery,
 } = shopApi;

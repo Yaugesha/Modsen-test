@@ -11,9 +11,7 @@ interface FiltersProps {
   handleInputSearch: ChangeEventHandler<HTMLInputElement>;
   products: Product[];
   priceRange: number[];
-  sortBy: string;
   setSortBy: Dispatch<SetStateAction<string>>;
-  shopBy: string;
   setShopBy: Dispatch<SetStateAction<string>>;
   minValue: number;
   setMinValue: Dispatch<SetStateAction<number>>;
@@ -25,15 +23,20 @@ const Filters = ({
   handleInputSearch,
   products,
   priceRange,
-  // sortBy,
-  // setSortBy,
-  // shopBy,
-  // setShopBy,
+  setSortBy,
+  setShopBy,
   minValue,
   setMinValue,
   maxValue,
   setMaxValue,
 }: FiltersProps) => {
+  const handleSortBy = (value: string) => {
+    setSortBy(value == 'ascending' ? 'asc' : 'desc');
+  };
+  const handleShopBy = (value: string) => {
+    setShopBy(value);
+  };
+
   return (
     <StyledFilters>
       <Input
@@ -43,8 +46,16 @@ const Filters = ({
         inputHandler={handleInputSearch}
       />
       <Sorts>
-        <Select name="Sort by" options={['ascending', 'descending']} />
-        <Select name="Shop by" options={findCategories(products)} />
+        <Select
+          name="Sort by"
+          options={['ascending', 'descending']}
+          handleSelect={handleSortBy}
+        />
+        <Select
+          name="Shop by"
+          options={findCategories(products)}
+          handleSelect={handleShopBy}
+        />
       </Sorts>
       <Range
         minValue={minValue}

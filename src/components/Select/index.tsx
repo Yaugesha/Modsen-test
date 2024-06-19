@@ -10,10 +10,11 @@ import chevron from '@assets/images/icons/chevron.svg';
 
 interface SelectProps {
   options: string[];
+  handleSelect: (value: string) => void;
   name: string;
 }
 
-const Select = ({ options, name }: SelectProps) => {
+const Select = ({ options, name, handleSelect }: SelectProps) => {
   const [isOptions, setIsOptions] = useState<boolean>(false);
   const [selectedOption, setOption] = useState<string | null>(null);
   const ref = useRef<HTMLElement>();
@@ -23,6 +24,7 @@ const Select = ({ options, name }: SelectProps) => {
   };
 
   const selectOption = (option: string) => {
+    handleSelect(option);
     setOption(option);
   };
 
