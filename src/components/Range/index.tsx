@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+import { Dispatch, SetStateAction, useEffect, useRef, useState } from 'react';
 import {
   RangeContainer,
   StyledRange,
@@ -23,11 +23,19 @@ import {
 
 interface RangeProps {
   range: number[];
+  minValue: number;
+  setMinValue: Dispatch<SetStateAction<number>>;
+  maxValue: number;
+  setMaxValue: Dispatch<SetStateAction<number>>;
 }
 
-const Range = ({ range }: RangeProps) => {
-  const [minValue, setMinValue] = useState<number>(range[0]);
-  const [maxValue, setMaxValue] = useState<number>(range[1]);
+const Range = ({
+  range,
+  minValue,
+  setMinValue,
+  maxValue,
+  setMaxValue,
+}: RangeProps) => {
   const [isDragging, setIsDragging] = useState<{ min: boolean; max: boolean }>({
     min: false,
     max: false,

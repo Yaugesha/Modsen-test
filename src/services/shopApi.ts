@@ -10,10 +10,31 @@ export const shopApi = createApi({
       query: path => path,
     }),
     getProducts: builder.query<Product[], number>({
-      query: limit => `products/?limit=${limit}`,
+      query: limit => ({
+        url: `products`,
+        params: [limit],
+      }),
     }),
     getProduct: builder.query<Product, number>({
       query: id => `products/?${id}`,
+    }),
+    getPriceSortedProducts: builder.query<Product[], string>({
+      query: sort => ({
+        url: `products`,
+        params: [sort],
+      }),
+    }),
+    getCategorySortedProducts: builder.query<Product[], string>({
+      query: category => `products/category/${category}'`,
+    }),
+    getPriceAndCategorySortedProducts: builder.query<
+      Product[],
+      { category: string; sort: string }
+    >({
+      query: ({ category, sort }) => ({
+        url: `products/category/${category}`,
+        params: [sort],
+      }),
     }),
   }),
 });
@@ -22,4 +43,6 @@ export const {
   useGetAllProductsQuery,
   useGetProductsQuery,
   useGetProductQuery,
+  useGetPriceSortedProductsQuery,
+  useGetCategorySortedProductsQuery,
 } = shopApi;
