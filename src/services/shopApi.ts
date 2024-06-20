@@ -16,7 +16,7 @@ export const shopApi = createApi({
       }),
     }),
     getProduct: builder.query<Product, number>({
-      query: id => `products/?${id}`,
+      query: id => `products/${id}`,
     }),
     getPriceSortedProducts: builder.query<Product[], string>({
       query: sort => ({
