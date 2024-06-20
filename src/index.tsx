@@ -1,7 +1,7 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom/client';
-import { ApiProvider } from '@reduxjs/toolkit/query/react';
-import { shopApi } from '@services/shopApi';
+import { Provider } from 'react-redux';
+import { store } from '@store/index';
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import Home from '@pages/Home/index';
 import Shop from '@pages/Shop/index';
@@ -26,8 +26,8 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
-    <ApiProvider api={shopApi}>
+    <Provider store={store}>
       <RouterProvider router={router} />
-    </ApiProvider>
+    </Provider>
   </React.StrictMode>,
 );
