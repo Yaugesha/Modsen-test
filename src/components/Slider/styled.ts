@@ -1,31 +1,30 @@
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 
-const SliderWrapper = styled.div`
+const SliderWrapper = styled.div<{ width: number; height: number }>`
   position: relative;
-  width: 100%;
-  height: 646px;
-  overflow-x: hidden;
 
-  padding-top: 8px;
-  margin-top: 64px;
+  width: ${props => props.width}px;
+  height: ${props => props.height}px;
+
+  overflow-x: hidden;
 `;
 
-const SliderContent = styled.div`
+const SliderContent = styled.div<{ gap: number }>`
   position: absolute;
   display: flex;
-  gap: 64px;
+  gap: ${props => props.gap}px;
 
   transition: left 0.5s;
 `;
 
-const ImageWrapper = styled.div`
+const ImageWrapper = styled.div<{ width: number; height: number }>`
   display: flex;
   justify-content: center;
 
   border-radius: 16px;
 
-  width: 1268px;
-  height: 646px;
+  width: ${props => props.width}px;
+  height: ${props => props.height}px;
 `;
 
 const Image = styled.img`
@@ -44,22 +43,19 @@ const SliderPagination = styled.div`
   margin: auto;
 `;
 
-const paginationItemActive = css`
+const PaginationItemActive = styled.div`
   width: 16px;
   height: 16px;
   border: 2px solid ${props => props.theme.accent};
+  border-radius: 99px;
 `;
 
-const paginationItemInactive = css`
+const PaginationItemInactive = styled.div`
   width: 10px;
   height: 10px;
   background-color: ${props => props.theme.accent};
-  cursor: pointer;
-`;
-
-const PaginationItem = styled.div<{ isActive: boolean }>`
-  ${props => (props.isActive ? paginationItemActive : paginationItemInactive)}
   border-radius: 99px;
+  cursor: pointer;
 `;
 
 export {
@@ -68,5 +64,6 @@ export {
   Image,
   ImageWrapper,
   SliderPagination,
-  PaginationItem,
+  PaginationItemActive,
+  PaginationItemInactive,
 };

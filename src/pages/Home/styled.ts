@@ -4,6 +4,11 @@ const ProductSection = styled.section`
   margin: 64px 0px 252px;
 `;
 
+const SliderSection = styled.div`
+  padding-top: 8px;
+  margin-top: 64px;
+`;
+
 const SectionHeader = styled.div`
   display: flex;
   justify-content: space-between;
@@ -21,4 +26,10 @@ const SectionContent = styled.div`
   row-gap: 80px;
 `;
 
-export { ProductSection, SectionHeader, SectionHeading, SectionContent };
+export {
+  SliderSection,
+  ProductSection,
+  SectionHeader,
+  SectionHeading,
+  SectionContent,
+};

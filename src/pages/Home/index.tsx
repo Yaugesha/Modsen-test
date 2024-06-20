@@ -8,16 +8,26 @@ import {
   SectionContent,
   SectionHeader,
   SectionHeading,
+  SliderSection,
 } from './styled';
+import { useAppSelector } from '@utils/hooks';
 
 const Home = () => {
   const { data, isLoading, isError } = useGetProductsQuery(6);
+
+  const cart = useAppSelector(state => state.cart);
+
+  console.log(cart);
 
   return (
     <div>
       {isLoading && <div>Loading...</div>}
       {isError && <div>Something went wrong</div>}
-      {data && <Slider items={data.slice(0, 5)} />}
+      {data && (
+        <SliderSection>
+          <Slider items={data.slice(0, 5)} width={1248} height={640} gap={64} />
+        </SliderSection>
+      )}
       <ProductSection>
         <SectionHeader>
           <SectionHeading>Shop the latest</SectionHeading>

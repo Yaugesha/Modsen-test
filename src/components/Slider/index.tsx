@@ -1,36 +1,45 @@
-import { Product } from '@utils/types';
 import {
   SliderWrapper,
   Image,
   ImageWrapper,
   SliderContent,
   SliderPagination,
-  PaginationItem,
+  PaginationItemInactive,
+  PaginationItemActive,
 } from './styled';
 import { useEffect, useState } from 'react';
 
-interface Items {
-  items: Product[];
+export interface Slide {
+  image: string;
+  title: string;
+  id: number;
 }
 
-const Slider = ({ items }: Items) => {
-  const [currentItem, setCurrentItem] = useState<Product>(items[0]);
+interface Items {
+  items: Slide[];
+  width: number;
+  height: number;
+  gap: number;
+}
+
+const Slider = ({ items, width, height, gap }: Items) => {
+  const [currentItem, setCurrentItem] = useState<Slide>(items[0]);
 
   useEffect(() => {
     const interval = setTimeout(autoScroll, 3000);
     return () => clearInterval(interval);
   }, [currentItem]);
 
-  const toggleSlide = (item: Product) => {
+  const toggleSlide = (item: Slide) => {
     const slider = document.querySelector('.slider') as HTMLElement;
-    slider.style.left = `-${Math.abs(1 - item.id) * 1312}px`;
+    slider.style.left = `-${Math.abs(1 - item.id) * (width + gap)}px`;
     setCurrentItem(item);
   };
 
   const autoScroll = () => {
     const slider = document.querySelector('.slider') as HTMLElement;
     if (currentItem.id !== items.length) {
-      slider.style.left = `-${currentItem.id * 1312}px`;
+      slider.style.left = `-${currentItem.id * (width + gap)}px`;
       setCurrentItem(items[currentItem.id]);
     } else {
       slider.style.left = '0px';
@@ -39,22 +48,28 @@ const Slider = ({ items }: Items) => {
   };
 
   return (
-    <SliderWrapper>
-      <SliderContent className="slider">
-        {items.map((item: Product) => (
-          <ImageWrapper key={item.id}>
+    <SliderWrapper width={width} height={height}>
+      <SliderContent gap={gap} className="slider">
+        {items.map((item: Slide) => (
+          <ImageWrapper width={width} height={height} key={item.id}>
             <Image src={item.image} alt={item.title} />
           </ImageWrapper>
         ))}
       </SliderContent>
       <SliderPagination>
-        {items.map((item: Product) => (
-          <PaginationItem
-            isActive={currentItem.id === item.id}
-            key={item.id}
-            onClick={() => toggleSlide(item)}
-          />
-        ))}
+        {items.map((item: Slide) => {
+          return currentItem.id !== item.id ? (
+            <PaginationItemInactive
+              onClick={() => toggleSlide(item)}
+              key={item.id}
+            />
+          ) : (
+            <PaginationItemActive
+              onClick={() => toggleSlide(item)}
+              key={item.id}
+            />
+          );
+        })}
       </SliderPagination>
     </SliderWrapper>
   );
