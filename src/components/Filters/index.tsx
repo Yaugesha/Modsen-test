@@ -4,15 +4,13 @@ import search from '@assets/images/icons/search.svg';
 import Range from '@components/Range';
 import { ChangeEventHandler, Dispatch, SetStateAction } from 'react';
 import { StyledFilters, Sorts } from './styled';
-import { Product } from '@utils/types';
-import { findCategories } from '@utils/filter';
+import { useAllCategoties } from '@utils/hooks/apiShopHooks';
 
 interface FiltersProps {
   handleInputSearch: ChangeEventHandler<HTMLInputElement>;
-  products: Product[];
   priceRange: number[];
-  setSortBy: Dispatch<SetStateAction<string>>;
-  setShopBy: Dispatch<SetStateAction<string>>;
+  setSortBy: (newValue: string) => void;
+  setShopBy: (newValue: string) => void;
   minValue: number;
   setMinValue: Dispatch<SetStateAction<number>>;
   maxValue: number;
@@ -21,7 +19,6 @@ interface FiltersProps {
 
 const Filters = ({
   handleInputSearch,
-  products,
   priceRange,
   setSortBy,
   setShopBy,
@@ -36,6 +33,8 @@ const Filters = ({
   const handleShopBy = (value: string) => {
     setShopBy(value);
   };
+
+  const categories = useAllCategoties();
 
   return (
     <StyledFilters>
@@ -53,7 +52,7 @@ const Filters = ({
         />
         <Select
           name="Shop by"
-          options={findCategories(products)}
+          options={categories.data!}
           handleSelect={handleShopBy}
         />
       </Sorts>
