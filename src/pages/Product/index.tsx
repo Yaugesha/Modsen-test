@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react';
 import {
   useGetProductQuery,
-  useLazyGetCategorySortedProductsQuery,
+  useLazyGetCategoryIdSortedProductsQuery,
 } from '@services/shopApi';
-import { useAppDispatch } from '@utils/hooks';
+import { useAppDispatch } from '@utils/hooks/storeHooks';
 import { useLocation } from 'react-router-dom';
 import { Product } from '@utils/types';
 import Slider, { Slide } from '@components/Slider';
@@ -47,11 +47,14 @@ const Product = () => {
     setSimilarItems(items);
   };
 
-  const [fetchSimilarProducts, {}] = useLazyGetCategorySortedProductsQuery();
+  const [fetchSimilarProducts, {}] = useLazyGetCategoryIdSortedProductsQuery();
 
   useEffect(() => {
     const fetchProducts = async () => {
-      const similarItems = await fetchSimilarProducts(data!.category);
+      const similarItems = await fetchSimilarProducts({
+        category: data!.category,
+        sort: '',
+      });
       handleChangeSimilarItems(similarItems.data!);
     };
 

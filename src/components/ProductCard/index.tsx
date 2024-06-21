@@ -1,5 +1,7 @@
 import { Product } from '@utils/types';
 import { Card, Image, ImageContainer, Price, Title, Action } from './styled';
+import { useAppDispatch } from '@utils/hooks/storeHooks';
+import { fullCost } from '@utils/productHelper';
 
 interface ProductCard {
   product: Product;
@@ -8,13 +10,17 @@ interface ProductCard {
 }
 
 const ProductCard = ({ product, width, height }: ProductCard) => {
-  const fullCost = (price: number) => price.toFixed(2);
+  const dispatch = useAppDispatch();
 
   return (
     <Card width={width} height={height}>
       <ImageContainer size={width}>
         <Image size={width} src={product.image} alt={product.title} />
-        <Action top={width}>
+        <Action
+          top={width}
+          onClick={() => {
+            dispatch({ type: 'cart/addProduct', payload: product });
+          }}>
           <span>Add to cart</span>
         </Action>
       </ImageContainer>

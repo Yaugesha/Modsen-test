@@ -10,7 +10,7 @@ import {
   SectionHeading,
   SliderSection,
 } from './styled';
-import { useAppSelector } from '@utils/hooks';
+import { useAppSelector } from '@utils/hooks/storeHooks';
 
 const Home = () => {
   const { data, isLoading, isError } = useGetProductsQuery(6);
