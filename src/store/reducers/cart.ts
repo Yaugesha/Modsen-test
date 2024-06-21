@@ -1,5 +1,5 @@
 import { createReducer } from '@reduxjs/toolkit';
-import { Product } from '@utils/types';
+import { Product } from 'src/types/types';
 import { RootState } from '../index';
 import {
   addProduct,

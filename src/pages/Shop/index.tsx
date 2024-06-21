@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Product } from '@utils/types';
+import { Product } from 'src/types/Product';
 import Filters from '@components/Filters';
 import ProductCard from '@components/ProductCard';
 import { Heading, SectionContent, CardsContainer } from './styled';
@@ -32,6 +32,14 @@ const Shop = () => {
     setShopBy(newValue);
   };
 
+  const handleSetMinValue = (newValue: number) => {
+    setMinValue(newValue);
+  };
+
+  const handleSetMaxValue = (newValue: number) => {
+    setMaxValue(newValue);
+  };
+
   const filteredProducts = (products: Product[]): Array<Product> => {
     return products
       ?.filter(product =>
@@ -52,9 +60,9 @@ const Shop = () => {
           setSortBy={handleSelectSortBy}
           setShopBy={handleSelectShopBy}
           minValue={minValue}
-          setMinValue={setMinValue}
+          setMinValue={handleSetMinValue}
           maxValue={maxValue}
-          setMaxValue={setMaxValue}
+          setMaxValue={handleSetMaxValue}
         />
         <>
           {isLoading && <div>Loading...</div>}

@@ -1,15 +1,5 @@
 import { MyGroup } from './styled';
-
-interface GroupProps {
-  children: JSX.Element | JSX.Element[];
-  align?: 'center' | 'start' | 'end' | 'stretch';
-  grow?: boolean;
-  justify?: 'center' | 'start' | 'end' | 'space-between' | 'space-evenly';
-  wrap?: boolean;
-  gap?: number;
-  width?: number;
-  height?: number;
-}
+import { GroupProps } from './types';
 
 const Group = ({
   children,

@@ -1,13 +1,5 @@
 import { MyStack } from './styled';
-
-interface StackProps {
-  children: JSX.Element | JSX.Element[];
-  align?: 'center' | 'start' | 'end' | 'stretch';
-  justify?: 'center' | 'start' | 'end' | 'space-between' | 'space-evenly';
-  gap?: number;
-  width?: number;
-  height?: number;
-}
+import { StackProps } from './types';
 
 const Stack = ({
   children,

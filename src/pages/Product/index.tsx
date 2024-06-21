@@ -5,8 +5,8 @@ import {
 } from '@services/shopApi';
 import { useAppDispatch } from '@utils/hooks/storeHooks';
 import { useLocation } from 'react-router-dom';
-import { Product } from '@utils/types';
-import Slider, { Slide } from '@components/Slider';
+import { Product } from 'src/types/Product';
+import Slider from '@components/Slider';
 import { createSlides, fullCost, getProductId } from '@utils/productHelper';
 import { MyStack } from '@components/Containers/Stack/styled';
 import { MyGroup } from '@components/Containers/Group/styled';
@@ -29,6 +29,7 @@ import instagram from '@assets/images/socials/instagram.svg';
 import twitter from '@assets/images/socials/twitter.svg';
 import ProductCard from '@components/ProductCard';
 import Button from '@components/Button';
+import { Slide } from 'src/types/Slider';
 
 const Product = () => {
   const [similarItems, setSimilarItems] = useState<Product[]>();

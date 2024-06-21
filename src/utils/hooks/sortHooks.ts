@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Product } from '@utils/types';
+import { Product } from 'src/types/types';
 import {
   useAllProducts,
   useIdSortedProducts,

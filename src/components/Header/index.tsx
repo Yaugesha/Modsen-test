@@ -10,6 +10,7 @@ import {
   Switcher,
   Icon,
 } from './styled';
+import { Link } from 'react-router-dom';
 
 const Header = () => {
   return (
@@ -18,9 +19,15 @@ const Header = () => {
       <Menu>
         <nav>
           <NavList>
-            <NavItem>Home</NavItem>
-            <NavItem>Shop</NavItem>
-            <NavItem>Contacts</NavItem>
+            <Link to="/">
+              <NavItem>Home</NavItem>
+            </Link>
+            <Link to="/shop">
+              <NavItem>Shop</NavItem>
+            </Link>
+            <Link to="/product/1">
+              <NavItem>Contacts</NavItem>
+            </Link>
           </NavList>
         </nav>
         <Switcher />

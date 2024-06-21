@@ -1,5 +1,5 @@
-import { Slide } from '@components/Slider';
-import { Product } from './types';
+import { Slide } from 'src/types/Slider';
+import { Product } from '../types/Product';
 
 const fullCost = (price: number) => price.toFixed(2);
 

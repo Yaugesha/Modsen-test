@@ -1,3 +1,4 @@
+import { Slide } from 'src/types/types';
 import {
   SliderWrapper,
   Image,
@@ -9,20 +10,14 @@ import {
 } from './styled';
 import { useEffect, useState } from 'react';
 
-export interface Slide {
-  image: string;
-  title: string;
-  id: number;
-}
-
-interface Items {
+interface SLiderProps {
   items: Slide[];
   width: number;
   height: number;
   gap: number;
 }
 
-const Slider = ({ items, width, height, gap }: Items) => {
+const Slider = ({ items, width, height, gap }: SLiderProps) => {
   const [currentItem, setCurrentItem] = useState<Slide>(items[0]);
 
   useEffect(() => {

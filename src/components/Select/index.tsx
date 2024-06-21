@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+import { useRef, useState } from 'react';
 import {
   SelectButton,
   SelectContainer,
@@ -7,6 +7,7 @@ import {
   SelectOption,
 } from './styled';
 import chevron from '@assets/images/icons/chevron.svg';
+import { useClickOutside } from '@utils/hooks/browserEventsHooks';
 
 interface SelectProps {
   options: string[];
@@ -17,7 +18,7 @@ interface SelectProps {
 const Select = ({ options, name, handleSelect }: SelectProps) => {
   const [isOptions, setIsOptions] = useState<boolean>(false);
   const [selectedOption, setOption] = useState<string | null>(null);
-  const ref = useRef<HTMLElement>();
+  const ref = useRef<HTMLDivElement>(null);
 
   const toggleOptions = () => {
     setIsOptions(!isOptions);
@@ -26,31 +27,23 @@ const Select = ({ options, name, handleSelect }: SelectProps) => {
   const selectOption = (option: string) => {
     handleSelect(option);
     setOption(option);
+    setIsOptions(false);
   };
 
-  const handleClickOutside = (event: MouseEvent) => {
-    if (ref.current && !ref.current.contains(event.target as Node)) {
-      setIsOptions(false);
-    }
-  };
-
-  useEffect(() => {
-    document.addEventListener('click', handleClickOutside);
-  }, []);
+  useClickOutside(ref, () => {
+    if (isOptions) setIsOptions(false);
+  });
 
   return (
-    <SelectContainer>
-      <SelectButton ref={ref} onClick={toggleOptions}>
+    <SelectContainer ref={ref}>
+      <SelectButton onClick={toggleOptions}>
         <span>{selectedOption || name}</span>
         <Chevron selected={isOptions} src={chevron} alt="down" />
       </SelectButton>
       {isOptions && (
         <SelectOptions>
           {options.map((option: string, idx: number) => (
-            <SelectOption
-              key={idx}
-              className="option"
-              onClick={() => selectOption(option)}>
+            <SelectOption key={idx} onClick={() => selectOption(option)}>
               {option}
             </SelectOption>
           ))}

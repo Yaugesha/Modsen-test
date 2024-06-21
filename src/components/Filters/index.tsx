@@ -2,20 +2,9 @@ import Input from '@components/Input/index';
 import Select from '@components/Select/index';
 import search from '@assets/images/icons/search.svg';
 import Range from '@components/Range';
-import { ChangeEventHandler, Dispatch, SetStateAction } from 'react';
 import { StyledFilters, Sorts } from './styled';
 import { useAllCategoties } from '@utils/hooks/apiShopHooks';
-
-interface FiltersProps {
-  handleInputSearch: ChangeEventHandler<HTMLInputElement>;
-  priceRange: number[];
-  setSortBy: (newValue: string) => void;
-  setShopBy: (newValue: string) => void;
-  minValue: number;
-  setMinValue: Dispatch<SetStateAction<number>>;
-  maxValue: number;
-  setMaxValue: Dispatch<SetStateAction<number>>;
-}
+import { FiltersProps } from './types';
 
 const Filters = ({
   handleInputSearch,

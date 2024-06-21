@@ -1,7 +1,7 @@
 import ProductCard from '@components/ProductCard';
 import Slider from '@components/Slider';
 import { useGetProductsQuery } from '@services/shopApi';
-import { Product } from '@utils/types';
+import { Product } from 'src/types/Product';
 import { Link } from 'react-router-dom';
 import {
   ProductSection,

@@ -1,4 +1,4 @@
-import { Dispatch, SetStateAction, useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import {
   RangeContainer,
   StyledRange,
@@ -19,14 +19,14 @@ import {
   handleInputMaxValueForLine,
   handleInputMinValueForLine,
   RangeElements,
-} from '@utils/rangeInputHandlers';
+} from '@components/Range/handlers';
 
 interface RangeProps {
   range: number[];
   minValue: number;
-  setMinValue: Dispatch<SetStateAction<number>>;
+  setMinValue: (newMinValue: number) => void;
   maxValue: number;
-  setMaxValue: Dispatch<SetStateAction<number>>;
+  setMaxValue: (newMaxValue: number) => void;
 }
 
 const Range = ({
