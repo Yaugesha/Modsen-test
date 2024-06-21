@@ -18,18 +18,18 @@ export const shopApi = createApi({
     getProduct: builder.query<Product, number>({
       query: id => `products/${id}`,
     }),
-    getPriceSortedProducts: builder.query<Product[], string>({
+    getIdSortedProducts: builder.query<Product[], string>({
       query: sort => ({
         url: `products`,
         params: { sort },
       }),
     }),
-    getCategorySortedProducts: builder.query<Product[], string>({
-      query: category => `products/category/${category}`,
+    getCategories: builder.query<string[], string>({
+      query: path => path,
     }),
-    getPriceAndCategorySortedProducts: builder.query<
+    getCategoryIdSortedProducts: builder.query<
       Product[],
-      { category: string; sort: string }
+      { category: string; sort: string | undefined }
     >({
       query: ({ category, sort }) => ({
         url: `products/category/${category}`,
@@ -43,8 +43,10 @@ export const {
   useGetAllProductsQuery,
   useGetProductsQuery,
   useGetProductQuery,
-  useGetPriceSortedProductsQuery,
-  useGetCategorySortedProductsQuery,
-  useLazyGetPriceSortedProductsQuery,
-  useLazyGetCategorySortedProductsQuery,
+  useGetCategoriesQuery,
+  useGetIdSortedProductsQuery,
+  useGetCategoryIdSortedProductsQuery,
+
+  useLazyGetIdSortedProductsQuery,
+  useLazyGetCategoryIdSortedProductsQuery,
 } = shopApi;
