@@ -7,6 +7,7 @@ import Home from '@pages/Home/index';
 import Shop from '@pages/Shop/index';
 import Product from '@pages/Product/index';
 import AppLayout from '@components/AppLayout/index';
+import Cart from '@pages/Cart';
 
 const router = createBrowserRouter([
   {
@@ -29,6 +30,10 @@ const router = createBrowserRouter([
             element: <Product />,
           },
         ],
+      },
+      {
+        path: '/cart',
+        element: <Cart />,
       },
     ],
   },

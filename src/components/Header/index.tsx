@@ -27,7 +27,9 @@ const Header = () => {
         </nav>
         <Switcher />
         <Icon src={searchImage} alt="search" />
-        <Icon src={cartImage} alt="cart" />
+        <Link to="/cart">
+          <Icon src={cartImage} alt="cart" />
+        </Link>
       </Group>
     </StyledHeader>
   );

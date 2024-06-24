@@ -11,14 +11,9 @@ import {
   ShopLink,
   SliderSection,
 } from './styled';
-import { useAppSelector } from '@utils/hooks/storeHooks';
 
 const Home = () => {
   const { data, isLoading, isError } = useGetProductsQuery(6);
-
-  const cart = useAppSelector(state => state.cart);
-
-  console.log(cart);
 
   return (
     <div>
