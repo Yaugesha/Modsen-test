@@ -1,10 +1,10 @@
-import { useEffect } from 'react';
 import {
   useGetAllProductsQuery,
   useGetCategoriesQuery,
-  useLazyGetIdSortedProductsQuery,
   useLazyGetCategoryIdSortedProductsQuery,
+  useLazyGetIdSortedProductsQuery,
 } from '@services/shopApi';
+import { useEffect } from 'react';
 
 export const useAllProducts = () => {
   const { data, isLoading, isError } = useGetAllProductsQuery('products\\');

@@ -25,4 +25,4 @@ const InputButton = styled.img`
   cursor: pointer;
 `;
 
-export { StyledInput, InputWrapper, InputButton };
+export { InputButton, InputWrapper, StyledInput };

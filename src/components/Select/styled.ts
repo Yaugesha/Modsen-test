@@ -57,4 +57,4 @@ const SelectOption = styled.li`
   }
 `;
 
-export { SelectContainer, SelectOptions, SelectButton, Chevron, SelectOption };
+export { Chevron, SelectButton, SelectContainer, SelectOption, SelectOptions };

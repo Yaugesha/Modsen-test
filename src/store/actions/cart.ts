@@ -1,6 +1,6 @@
-import { PayloadAction, createAction } from '@reduxjs/toolkit';
-import { CartState, cartProduct } from '@store/reducers/cart';
-import { Product } from 'src/types/Product';
+import { Product } from '@customTypes/Product';
+import { createAction, PayloadAction } from '@reduxjs/toolkit';
+import { cartProduct, CartState } from '@store/reducers/cart';
 
 const getProduct = (cartProducts: cartProduct[], id: number): cartProduct => {
   return cartProducts.find(cartProduct => cartProduct.product.id === id)!;
@@ -32,7 +32,7 @@ const changeProductCountAction = (
 
 export {
   addProduct,
-  changeProductCount,
   addProductAction,
+  changeProductCount,
   changeProductCountAction,
 };

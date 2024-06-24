@@ -1,9 +1,10 @@
-import { Product } from 'src/types/Product';
-import { Card, Image, ImageContainer, Price, Title, Action } from './styled';
+import { Product } from '@customTypes/Product';
 import { useAppDispatch } from '@utils/hooks/storeHooks';
 import { fullCost } from '@utils/productHelper';
-import { useNavigate } from 'react-router-dom';
 import { useRef } from 'react';
+import { useNavigate } from 'react-router-dom';
+
+import { Action, Card, Image, ImageContainer, Price, Title } from './styled';
 
 interface ProductCard {
   product: Product;

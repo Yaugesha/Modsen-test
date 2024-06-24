@@ -1,25 +1,26 @@
-import { useEffect, useRef, useState } from 'react';
+import Input from '@components/Input';
 import {
-  RangeContainer,
-  StyledRange,
-  RangeLine,
+  handleChangeMaxBorder,
+  handleChangeMinBorder,
+  handleInputMaxValue,
+  handleInputMaxValueForLine,
+  handleInputMinValue,
+  handleInputMinValueForLine,
+  handleMouseMove,
+  handleMouseUp,
+  RangeElements,
+} from '@components/Range/handlers';
+import { useEffect, useRef, useState } from 'react';
+
+import {
   RangeBorder,
+  RangeContainer,
   RangeInfo,
   RangeInput,
   RangeInputLabel,
+  RangeLine,
+  StyledRange,
 } from './styled';
-import Input from '@components/Input';
-import {
-  handleInputMinValue,
-  handleInputMaxValue,
-  handleMouseMove,
-  handleMouseUp,
-  handleChangeMinBorder,
-  handleChangeMaxBorder,
-  handleInputMaxValueForLine,
-  handleInputMinValueForLine,
-  RangeElements,
-} from '@components/Range/handlers';
 
 interface RangeProps {
   range: number[];

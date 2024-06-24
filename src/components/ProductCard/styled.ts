@@ -76,4 +76,4 @@ const Price = styled.span`
   color: ${props => props.theme.colors.accent}
 `;
 
-export { Card, ImageContainer, Image, Title, Price, Action };
+export { Action, Card, Image, ImageContainer, Price, Title };

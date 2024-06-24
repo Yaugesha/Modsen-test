@@ -1,5 +1,5 @@
-import { Slide } from 'src/types/Slider';
-import { Product } from '../types/Product';
+import { Product } from '@customTypes/Product';
+import { Slide } from '@customTypes/Slider';
 
 const fullCost = (price: number) => price.toFixed(2);
 
@@ -15,4 +15,4 @@ const createSlides = (item: Product, size: number): Slide[] => {
   return arr;
 };
 
-export { fullCost, getProductId, createSlides };
+export { createSlides, fullCost, getProductId };

@@ -1,5 +1,6 @@
 import Group from '@components/Containers/Group';
-import { CounterButton, Counter } from './styled';
+
+import { Counter, CounterButton } from './styled';
 
 interface ItemCounterProps {
   count: number;

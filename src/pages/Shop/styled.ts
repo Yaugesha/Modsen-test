@@ -20,4 +20,4 @@ const CardsContainer = styled.div`
   margin-bottom: 252px;
 `;
 
-export { Heading, SectionContent, CardsContainer };
+export { CardsContainer, Heading, SectionContent };

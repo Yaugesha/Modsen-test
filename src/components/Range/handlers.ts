@@ -153,13 +153,13 @@ const handleChangeMaxBorder = (
 };
 
 export {
-  handleInputMinValue,
+  handleChangeMaxBorder,
+  handleChangeMinBorder,
   handleInputMaxValue,
+  handleInputMaxValueForLine,
+  handleInputMinValue,
+  handleInputMinValueForLine,
   handleMouseMove,
   handleMouseUp,
-  handleChangeMinBorder,
-  handleChangeMaxBorder,
-  handleInputMaxValueForLine,
-  handleInputMinValueForLine,
   RangeElements,
 };

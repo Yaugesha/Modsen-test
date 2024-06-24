@@ -71,15 +71,15 @@ const SimilarItemsSection = styled.section`
 `;
 
 export {
-  ProductInfo,
-  PhotoContainer,
-  Photo,
-  MainHeading,
-  ProductPrice,
-  Description,
-  Highlited,
   Categories,
+  Description,
   DescriptionSection,
+  Highlited,
+  MainHeading,
+  Photo,
+  PhotoContainer,
+  ProductInfo,
+  ProductPrice,
   SectionHeading,
   SimilarItemsSection,
 };

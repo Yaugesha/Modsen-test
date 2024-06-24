@@ -1,11 +1,12 @@
-import Input from '@components/Input/index';
-import Select from '@components/Select/index';
 import search from '@assets/images/icons/search.svg';
-import Range from '@components/Range';
-import { StyledFilters } from './styled';
-import { useAllCategoties } from '@utils/hooks/apiShopHooks';
-import { FiltersProps } from './types';
 import Stack from '@components/Containers/Stack';
+import Input from '@components/Input/index';
+import Range from '@components/Range';
+import Select from '@components/Select/index';
+import { useAllCategoties } from '@utils/hooks/apiShopHooks';
+
+import { StyledFilters } from './styled';
+import { FiltersProps } from './types';
 
 const Filters = ({
   handleInputSearch,

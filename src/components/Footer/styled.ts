@@ -48,4 +48,4 @@ const Highlited = styled.span`
   color: ${props => props.theme.colors.secondary};
 `;
 
-export { StyledFooter, NavList, Input, Highlited };
+export { Highlited, Input, NavList, StyledFooter };

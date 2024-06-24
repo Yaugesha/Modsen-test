@@ -1,5 +1,5 @@
-import { createGlobalStyle } from 'styled-components';
 import font from '@assets/fonts/DM_Sans/DMSans-VariableFont_opsz,wght.ttf';
+import { createGlobalStyle } from 'styled-components';
 
 const GlobalStyle = createGlobalStyle`
   @font-face {

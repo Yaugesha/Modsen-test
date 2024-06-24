@@ -1,9 +1,10 @@
+import Footer from '@components/Footer';
+import Header from '@components/Header/index';
+import { baseTheme } from '@constants/themes';
 import { Outlet } from 'react-router-dom';
 import { ThemeProvider } from 'styled-components';
+
 import { GlobalStyle } from './styled';
-import Header from '@components/Header/index';
-import Footer from '@components/Footer';
-import { baseTheme } from '@constants/themes';
 
 const AppLayout = () => {
   const theme = {

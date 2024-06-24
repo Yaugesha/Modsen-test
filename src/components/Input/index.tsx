@@ -1,4 +1,4 @@
-import { StyledInput, InputWrapper, InputButton } from './styled';
+import { InputButton, InputWrapper, StyledInput } from './styled';
 
 interface InputProps {
   inputHandler: React.ChangeEventHandler<HTMLInputElement>;

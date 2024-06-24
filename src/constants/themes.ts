@@ -97,4 +97,4 @@ const baseTheme = {
   },
 };
 
-export { baseTheme, lightThemeColors, darkThemeColors };
+export { baseTheme, darkThemeColors, lightThemeColors };

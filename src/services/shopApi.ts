@@ -1,6 +1,6 @@
 import { SHOP_API_URL } from '@constants/apiConstants';
+import type { Product } from '@customTypes/Product';
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
-import type { Product } from 'src/types/Product';
 
 export const shopApi = createApi({
   reducerPath: 'shopPath',

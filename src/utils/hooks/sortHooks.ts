@@ -1,9 +1,10 @@
+import { Product } from '@customTypes/Product';
 import { useEffect, useState } from 'react';
-import { Product } from 'src/types/Product';
+
 import {
   useAllProducts,
-  useIdSortedProducts,
   useCategoryIdSortedProducts,
+  useIdSortedProducts,
 } from './apiShopHooks';
 
 export const useProductSort = (sortBy: string, shopBy: string) => {

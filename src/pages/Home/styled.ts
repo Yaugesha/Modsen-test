@@ -34,10 +34,10 @@ const ShopLink = styled.span`
 `;
 
 export {
-  SliderSection,
   ProductSection,
+  SectionContent,
   SectionHeader,
   SectionHeading,
-  SectionContent,
   ShopLink,
+  SliderSection,
 };

@@ -25,4 +25,4 @@ const Counter = styled.span`
   ${props => props.theme.typography.h5}
 `;
 
-export { CounterButton, Counter };
+export { Counter, CounterButton };

@@ -1,9 +1,10 @@
-import { useState } from 'react';
-import { Product } from 'src/types/Product';
 import Filters from '@components/Filters';
 import ProductCard from '@components/ProductCard';
-import { Heading, SectionContent, CardsContainer } from './styled';
+import { Product } from '@customTypes/Product';
 import { useProductSort } from '@utils/hooks/sortHooks';
+import { useState } from 'react';
+
+import { CardsContainer, Heading, SectionContent } from './styled';
 
 const Shop = () => {
   const [searchItem, setItem] = useState<string>('');

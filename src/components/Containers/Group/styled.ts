@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+
 import { MyGroupProps } from './types';
 
 const MyGroup = styled.div<MyGroupProps>`

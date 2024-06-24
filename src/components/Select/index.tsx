@@ -1,13 +1,14 @@
-import { useRef, useState } from 'react';
-import {
-  SelectButton,
-  SelectContainer,
-  SelectOptions,
-  Chevron,
-  SelectOption,
-} from './styled';
 import chevron from '@assets/images/icons/chevron.svg';
 import { useClickOutside } from '@utils/hooks/browserEventsHooks';
+import { useRef, useState } from 'react';
+
+import {
+  Chevron,
+  SelectButton,
+  SelectContainer,
+  SelectOption,
+  SelectOptions,
+} from './styled';
 
 interface SelectProps {
   options: string[];

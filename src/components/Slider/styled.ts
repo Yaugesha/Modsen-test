@@ -59,11 +59,11 @@ const PaginationItemInactive = styled.div`
 `;
 
 export {
-  SliderWrapper,
-  SliderContent,
   Image,
   ImageWrapper,
-  SliderPagination,
   PaginationItemActive,
   PaginationItemInactive,
+  SliderContent,
+  SliderPagination,
+  SliderWrapper,
 };

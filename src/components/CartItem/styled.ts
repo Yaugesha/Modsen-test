@@ -22,4 +22,4 @@ const ItemPrice = styled.p`
   ${props => props.theme.typography.h4}
 `;
 
-export { StyledCartItem, ProductTitle, ProductPrice, ItemPrice };
+export { ItemPrice, ProductPrice, ProductTitle, StyledCartItem };

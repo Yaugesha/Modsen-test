@@ -70,4 +70,4 @@ const Icon = styled.img`
   }
 `;
 
-export { StyledHeader, Logo, NavList, NavItem, Switcher, Icon };
+export { Icon, Logo, NavItem, NavList, StyledHeader, Switcher };

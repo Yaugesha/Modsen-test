@@ -1,12 +1,13 @@
+import { Product } from '@customTypes/Product';
 import { createReducer } from '@reduxjs/toolkit';
-import { Product } from 'src/types/Product';
-import { RootState } from '../index';
 import {
   addProduct,
   addProductAction,
   changeProductCount,
   changeProductCountAction,
 } from '@store/actions/cart';
+
+import { RootState } from '../index';
 
 export interface cartProduct {
   product: Product;

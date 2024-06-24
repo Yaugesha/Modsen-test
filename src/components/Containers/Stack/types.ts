@@ -10,4 +10,4 @@ interface MyStackProps {
   height?: number;
 }
 
-export { StackProps, MyStackProps };
+export { MyStackProps, StackProps };

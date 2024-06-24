@@ -1,14 +1,15 @@
-import { Slide } from 'src/types/Slider';
+import { Slide } from '@customTypes/Slider';
+import { useEffect, useState } from 'react';
+
 import {
-  SliderWrapper,
   Image,
   ImageWrapper,
+  PaginationItemActive,
+  PaginationItemInactive,
   SliderContent,
   SliderPagination,
-  PaginationItemInactive,
-  PaginationItemActive,
+  SliderWrapper,
 } from './styled';
-import { useEffect, useState } from 'react';
 
 interface SLiderProps {
   items: Slide[];

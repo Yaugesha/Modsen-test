@@ -1,16 +1,17 @@
-import { Product } from 'src/types/Product';
-import {
-  StyledCartItem,
-  ProductTitle,
-  ProductPrice,
-  ItemPrice,
-} from './styled';
 import Button from '@components/Button';
-import { fullCost } from '@utils/productHelper';
 import Group from '@components/Containers/Group';
-import { Image, ImageContainer } from '@components/ProductCard/styled';
 import Stack from '@components/Containers/Stack';
 import ItemCounter from '@components/ItemCounter';
+import { Image, ImageContainer } from '@components/ProductCard/styled';
+import { Product } from '@customTypes/Product';
+import { fullCost } from '@utils/productHelper';
+
+import {
+  ItemPrice,
+  ProductPrice,
+  ProductTitle,
+  StyledCartItem,
+} from './styled';
 
 interface CartItemProps {
   product: Product;

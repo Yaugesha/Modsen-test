@@ -57,11 +57,11 @@ const RangeInputLabel = styled.div`
 `;
 
 export {
-  RangeContainer,
-  StyledRange,
-  RangeLine,
   RangeBorder,
+  RangeContainer,
   RangeInfo,
   RangeInput,
   RangeInputLabel,
+  RangeLine,
+  StyledRange,
 };

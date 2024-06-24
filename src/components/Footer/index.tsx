@@ -1,9 +1,10 @@
-import { Highlited, Input, NavList, StyledFooter } from './styled';
-import linkedin from '@assets/images/socials/linkedin.svg';
 import facebook from '@assets/images/socials/facebook.svg';
 import instagram from '@assets/images/socials/instagram.svg';
+import linkedin from '@assets/images/socials/linkedin.svg';
 import twitter from '@assets/images/socials/twitter.svg';
 import Group from '@components/Containers/Group';
+
+import { Highlited, Input, NavList, StyledFooter } from './styled';
 
 const Footer = () => {
   return (

@@ -1,9 +1,10 @@
-import logoImage from '@assets/images/logo/desktop.png';
 import cartImage from '@assets/images/icons/cart.svg';
 import searchImage from '@assets/images/icons/search.svg';
-import { StyledHeader, Logo, NavList, NavItem, Switcher, Icon } from './styled';
-import { Link } from 'react-router-dom';
+import logoImage from '@assets/images/logo/desktop.png';
 import Group from '@components/Containers/Group';
+import { Link } from 'react-router-dom';
+
+import { Icon, Logo, NavItem, NavList, StyledHeader, Switcher } from './styled';
 
 const Header = () => {
   return (

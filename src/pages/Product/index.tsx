@@ -1,35 +1,36 @@
-import { useEffect, useState } from 'react';
+import facebook from '@assets/images/socials/facebook.svg';
+import instagram from '@assets/images/socials/instagram.svg';
+import mail from '@assets/images/socials/mail.svg';
+import twitter from '@assets/images/socials/twitter.svg';
+import Button from '@components/Button';
+import Group from '@components/Containers/Group/index';
+import Stack from '@components/Containers/Stack/index';
+import ProductCard from '@components/ProductCard';
+import Slider from '@components/Slider';
+import { Product } from '@customTypes/Product';
+import { Slide } from '@customTypes/Slider';
 import {
   useGetProductQuery,
   useLazyGetCategoryIdSortedProductsQuery,
 } from '@services/shopApi';
 import { useAppDispatch } from '@utils/hooks/storeHooks';
-import { useLocation } from 'react-router-dom';
-import { Product } from 'src/types/Product';
-import Slider from '@components/Slider';
 import { createSlides, fullCost, getProductId } from '@utils/productHelper';
-import Stack from '@components/Containers/Stack/index';
-import Group from '@components/Containers/Group/index';
+import { useEffect, useState } from 'react';
+import { useLocation } from 'react-router-dom';
+
 import {
-  ProductInfo,
-  PhotoContainer,
-  Photo,
-  MainHeading,
-  ProductPrice,
-  Highlited,
-  Description,
   Categories,
+  Description,
   DescriptionSection,
+  Highlited,
+  MainHeading,
+  Photo,
+  PhotoContainer,
+  ProductInfo,
+  ProductPrice,
   SectionHeading,
   SimilarItemsSection,
 } from './styled';
-import mail from '@assets/images/socials/mail.svg';
-import facebook from '@assets/images/socials/facebook.svg';
-import instagram from '@assets/images/socials/instagram.svg';
-import twitter from '@assets/images/socials/twitter.svg';
-import ProductCard from '@components/ProductCard';
-import Button from '@components/Button';
-import { Slide } from 'src/types/Slider';
 
 const Product = () => {
   const [similarItems, setSimilarItems] = useState<Product[]>();

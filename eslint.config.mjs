@@ -5,6 +5,7 @@ import eslintReactHooks from 'eslint-plugin-react-hooks';
 import eslintReactRefresh from 'eslint-plugin-react-refresh';
 import prettierPlugin from 'eslint-plugin-prettier';
 import eslintConfigPrettier from 'eslint-config-prettier';
+import simpleImportSort from 'eslint-plugin-simple-import-sort';
 
 /** @type {import('eslint').Linter.FlatConfig[]} */
 export default [
@@ -14,6 +15,7 @@ export default [
       react: eslintReact,
       'react-hooks': eslintReactHooks,
       'react-refresh': eslintReactRefresh,
+      'simple-import-sort': simpleImportSort,
       prettier: prettierPlugin,
     },
   },
@@ -41,7 +43,9 @@ export default [
         { namedComponents: 'arrow-function' },
       ],
       'react/self-closing-comp': ['error', { component: true, html: true }],
-      'max-lines': ['warn', { max: 124 }],
+      'max-lines': ['warn', { max: 180 }],
+      'simple-import-sort/imports': 'error',
+      'simple-import-sort/exports': 'error',
     },
   },
 ];
