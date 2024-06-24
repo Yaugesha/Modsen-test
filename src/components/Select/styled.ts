@@ -40,8 +40,6 @@ const SelectOptions = styled.ul`
   border-radius: 4px;
   list-style: none;
 
-  padding: 0;
-  margin: 0;
   width: 100%;
   z-index: 2;
 `;

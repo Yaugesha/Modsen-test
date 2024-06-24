@@ -8,6 +8,8 @@ const Card = styled.div<{ width: number; height: number }>`
 
   width: ${props => props.width}px;
   height: ${props => props.height}px;
+
+  cursor: pointer;
 `;
 
 const Action = styled.div<{ top: number }>`
@@ -26,7 +28,13 @@ const Action = styled.div<{ top: number }>`
   height: 64px;
   width: 100%;
 
-  transition: top 0.4s;
+  transition: all 0.4s;
+  cursor: pointer;
+
+  &:hover,
+  &:active {
+    background-color: rgba(227, 227, 227, 0.5);
+  }
 `;
 
 const ImageContainer = styled.div<{ size: number }>`
@@ -61,7 +69,6 @@ const Title = styled.p`
   text-overflow: ellipsis;
 
   width: 100%;
-  margin: 0;
 `;
 
 const Price = styled.span`

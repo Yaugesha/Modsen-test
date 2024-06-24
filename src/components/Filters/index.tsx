@@ -2,9 +2,10 @@ import Input from '@components/Input/index';
 import Select from '@components/Select/index';
 import search from '@assets/images/icons/search.svg';
 import Range from '@components/Range';
-import { StyledFilters, Sorts } from './styled';
+import { StyledFilters } from './styled';
 import { useAllCategoties } from '@utils/hooks/apiShopHooks';
 import { FiltersProps } from './types';
+import Stack from '@components/Containers/Stack';
 
 const Filters = ({
   handleInputSearch,
@@ -33,7 +34,7 @@ const Filters = ({
         buttonImage={search}
         inputHandler={handleInputSearch}
       />
-      <Sorts>
+      <Stack gap={16}>
         <Select
           name="Sort by"
           options={['ascending', 'descending']}
@@ -44,7 +45,7 @@ const Filters = ({
           options={categories.data!}
           handleSelect={handleShopBy}
         />
-      </Sorts>
+      </Stack>
       <Range
         minValue={minValue}
         maxValue={maxValue}

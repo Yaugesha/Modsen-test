@@ -8,6 +8,7 @@ import {
   SectionContent,
   SectionHeader,
   SectionHeading,
+  ShopLink,
   SliderSection,
 } from './styled';
 import { useAppSelector } from '@utils/hooks/storeHooks';
@@ -31,7 +32,9 @@ const Home = () => {
       <ProductSection>
         <SectionHeader>
           <SectionHeading>Shop the latest</SectionHeading>
-          <Link to="/shop">View all</Link>
+          <Link to="/shop">
+            <ShopLink>View all</ShopLink>
+          </Link>
         </SectionHeader>
         <div>
           {data && (

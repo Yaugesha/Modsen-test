@@ -8,10 +8,4 @@ const StyledFilters = styled.aside`
   max-width: 260px;
 `;
 
-const Sorts = styled.div`
-  display: flex;
-  flex-flow: column;
-  gap: 16px;
-`;
-
-export { StyledFilters, Sorts };
+export { StyledFilters };

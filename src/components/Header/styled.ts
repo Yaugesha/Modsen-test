@@ -14,14 +14,6 @@ const Logo = styled.img`
   height: 32px;
 `;
 
-const Menu = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-
-  width: 376px;
-`;
-
 const NavList = styled.ul`
   display: flex;
   align-items: center;
@@ -30,8 +22,6 @@ const NavList = styled.ul`
   list-style: none;
 
   width: 182px;
-  margin: 0;
-  padding: 0;
 `;
 
 const NavItem = styled.li`
@@ -80,4 +70,4 @@ const Icon = styled.img`
   }
 `;
 
-export { StyledHeader, Logo, NavList, NavItem, Menu, Switcher, Icon };
+export { StyledHeader, Logo, NavList, NavItem, Switcher, Icon };

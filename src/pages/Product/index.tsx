@@ -8,8 +8,8 @@ import { useLocation } from 'react-router-dom';
 import { Product } from 'src/types/Product';
 import Slider from '@components/Slider';
 import { createSlides, fullCost, getProductId } from '@utils/productHelper';
-import { MyStack } from '@components/Containers/Stack/styled';
-import { MyGroup } from '@components/Containers/Group/styled';
+import Stack from '@components/Containers/Stack/index';
+import Group from '@components/Containers/Group/index';
 import {
   ProductInfo,
   PhotoContainer,
@@ -69,8 +69,8 @@ const Product = () => {
       {data && (
         <>
           <ProductInfo>
-            <MyGroup gap={40}>
-              <MyStack justify="space-between" width={120} height={600}>
+            <Group gap={40}>
+              <Stack justify="space-between" width={120} height={600}>
                 {createSlides(data, 4).map((photo: Slide) => {
                   return (
                     <PhotoContainer size={120}>
@@ -83,36 +83,36 @@ const Product = () => {
                     </PhotoContainer>
                   );
                 })}
-              </MyStack>
+              </Stack>
               <Slider
                 items={createSlides(data, 4)}
                 width={540}
                 height={600}
                 gap={28}
               />
-            </MyGroup>
-            <MyStack gap={64} width={486}>
-              <MyStack gap={24}>
+            </Group>
+            <Stack gap={64} width={486}>
+              <Stack gap={24}>
                 <MainHeading>{data?.title}</MainHeading>
                 <ProductPrice>$ {fullCost(data?.price)}</ProductPrice>
-              </MyStack>
-              <MyStack justify="space-between" height={452}>
+              </Stack>
+              <Stack justify="space-between" height={452}>
                 <Description>{data?.description}</Description>
                 <Button name="Add to cart" handleClick={handleAddToCart} />
-                <MyStack gap={64}>
-                  <MyGroup gap={30}>
+                <Stack gap={64}>
+                  <Group gap={30}>
                     <img src={mail} alt="mail" />
                     <img src={facebook} alt="facebook" />
                     <img src={instagram} alt="instagram" />
                     <img src={twitter} alt="twitter" />
-                  </MyGroup>
+                  </Group>
                   <Categories>
                     <Highlited>Categories: </Highlited>
                     {data?.category}
                   </Categories>
-                </MyStack>
-              </MyStack>
-            </MyStack>
+                </Stack>
+              </Stack>
+            </Stack>
           </ProductInfo>
           <DescriptionSection>
             <SectionHeading>Description</SectionHeading>
@@ -120,7 +120,7 @@ const Product = () => {
           </DescriptionSection>
           <SimilarItemsSection>
             <MainHeading>Similar items</MainHeading>
-            <MyGroup justify="space-between" wrap={true}>
+            <Group justify="space-between" wrap={true}>
               {similarItems &&
                 similarItems
                   .filter((product: Product) => product.id !== data.id)
@@ -135,7 +135,7 @@ const Product = () => {
                       />
                     );
                   })}
-            </MyGroup>
+            </Group>
           </SimilarItemsSection>
         </>
       )}

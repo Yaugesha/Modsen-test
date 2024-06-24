@@ -1,8 +1,9 @@
-import { Highlited, Input, NavList, Socials, StyledFooter } from './styled';
+import { Highlited, Input, NavList, StyledFooter } from './styled';
 import linkedin from '@assets/images/socials/linkedin.svg';
 import facebook from '@assets/images/socials/facebook.svg';
 import instagram from '@assets/images/socials/instagram.svg';
 import twitter from '@assets/images/socials/twitter.svg';
+import Group from '@components/Containers/Group';
 
 const Footer = () => {
   return (
@@ -19,12 +20,12 @@ const Footer = () => {
         <Highlited>© 2023 Shelly.</Highlited> Terms of use{' '}
         <Highlited>and</Highlited> privacy policy.
       </p>
-      <Socials>
+      <Group gap={30} justify="end" align="center">
         <img src={linkedin} alt="linkedin" />
         <img src={facebook} alt="facebook" />
         <img src={instagram} alt="instagram" />
         <img src={twitter} alt="twitter" />
-      </Socials>
+      </Group>
     </StyledFooter>
   );
 };

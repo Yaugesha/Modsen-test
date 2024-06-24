@@ -28,9 +28,6 @@ const Photo = styled.img<{ size: number }>`
 
 const MainHeading = styled.h2`
   ${props => props.theme.typography.h2}
-
-  padding: 0;
-  margin: 0;
 `;
 
 const ProductPrice = styled.span`
@@ -41,9 +38,6 @@ const ProductPrice = styled.span`
 const Description = styled.p`
   ${props => props.theme.typography.h5};
   color: ${props => props.theme.darkGrey};
-
-  padding: 0;
-  margin: 0;
 `;
 
 const Highlited = styled.span`
@@ -53,9 +47,6 @@ const Highlited = styled.span`
 const Categories = styled.p`
   ${props => props.theme.typography.h5};
   color: ${props => props.theme.darkGrey};
-
-  padding: 0;
-  margin: 0;
 `;
 
 const DescriptionSection = styled.section`

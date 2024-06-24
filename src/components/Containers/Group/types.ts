@@ -1,5 +1,5 @@
 interface GroupProps extends MyGroupProps {
-  children: JSX.Element | JSX.Element[];
+  children?: JSX.Element | JSX.Element[];
 }
 
 interface MyGroupProps {

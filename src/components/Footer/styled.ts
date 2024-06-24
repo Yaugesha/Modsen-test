@@ -48,11 +48,4 @@ const Highlited = styled.span`
   color: ${props => props.theme.secondary};
 `;
 
-const Socials = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: end;
-  gap: 30px;
-`;
-
-export { StyledFooter, NavList, Input, Highlited, Socials };
+export { StyledFooter, NavList, Input, Highlited };

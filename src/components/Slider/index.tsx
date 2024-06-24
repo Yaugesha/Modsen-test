@@ -1,4 +1,4 @@
-import { Slide } from 'src/types/types';
+import { Slide } from 'src/types/Slider';
 import {
   SliderWrapper,
   Image,

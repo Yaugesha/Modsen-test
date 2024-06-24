@@ -1,6 +1,6 @@
 import { PayloadAction, createAction } from '@reduxjs/toolkit';
 import { CartState, cartProduct } from '@store/reducers/cart';
-import { Product } from 'src/types/types';
+import { Product } from 'src/types/Product';
 
 const getProduct = (cartProducts: cartProduct[], id: number): cartProduct => {
   return cartProducts.find(cartProduct => cartProduct.product.id === id)!;

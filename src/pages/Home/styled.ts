@@ -13,6 +13,8 @@ const SectionHeader = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+
+  margin-bottom: 40px;
 `;
 
 const SectionHeading = styled.h2`
@@ -26,10 +28,16 @@ const SectionContent = styled.div`
   row-gap: 80px;
 `;
 
+const ShopLink = styled.span`
+  ${props => props.theme.typography.h4}
+  color: ${props => props.theme.accent};
+`;
+
 export {
   SliderSection,
   ProductSection,
   SectionHeader,
   SectionHeading,
   SectionContent,
+  ShopLink,
 };
