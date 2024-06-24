@@ -25,12 +25,12 @@ const NavList = styled.ul`
 `;
 
 const NavItem = styled.li`
-  color: ${props => props.theme.secondary};
+  color: ${props => props.theme.colors.secondary};
   cursor: pointer;
 
   &:active {
-    padding-bottom: 8px;
-    border-bottom: 2px solid ${props => props.theme.secondary};
+    padding-bottom: ${props => props.theme.paddings.m};
+    border-bottom: 2px solid ${props => props.theme.colors.secondary};
   }
 `;
 
@@ -38,9 +38,9 @@ const Switcher = styled.div`
   position: relative;
 
   border: none;
-  border-radius: 99px;
+  border-radius: ${props => props.theme.borderR.round};
 
-  background-color: ${props => props.theme.grey};
+  background-color: ${props => props.theme.colors.grey};
 
   width: 45px;
   height: 22px;
@@ -53,8 +53,8 @@ const Switcher = styled.div`
     left: 2px;
 
     content: '';
-    background-color: ${props => props.theme.main};
-    border-radius: 99px;
+    background-color: ${props => props.theme.colors.main};
+    border-radius: ${props => props.theme.borderR.round};
 
     width: 18px;
     height: 18px;
@@ -65,8 +65,8 @@ const Icon = styled.img`
   cursor: pointer;
 
   &:active {
-    padding-bottom: 8px;
-    border-bottom: 2px solid ${props => props.theme.secondary};
+    padding-bottom: ${props => props.theme.paddings.m};
+    border-bottom: 2px solid ${props => props.theme.colors.secondary};
   }
 `;
 

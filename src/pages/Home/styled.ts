@@ -5,8 +5,8 @@ const ProductSection = styled.section`
 `;
 
 const SliderSection = styled.div`
-  padding-top: 8px;
-  margin-top: 64px;
+  padding-top: ${props => props.theme.paddings.s};
+  margin-top: ${props => props.theme.margins.l};
 `;
 
 const SectionHeader = styled.div`
@@ -14,7 +14,7 @@ const SectionHeader = styled.div`
   justify-content: space-between;
   align-items: center;
 
-  margin-bottom: 40px;
+  margin-bottom: ${props => props.theme.margins.m};
 `;
 
 const SectionHeading = styled.h2`
@@ -30,7 +30,7 @@ const SectionContent = styled.div`
 
 const ShopLink = styled.span`
   ${props => props.theme.typography.h4}
-  color: ${props => props.theme.accent};
+  color: ${props => props.theme.colors.accent};
 `;
 
 export {

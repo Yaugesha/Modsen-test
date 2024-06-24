@@ -13,8 +13,8 @@ const SelectButton = styled.div`
 
   ${props => props.theme.typography.m}
 
-  border: 1px solid ${props => props.theme.grey};
-  border-radius: 4px;
+  border: 1px solid ${props => props.theme.colors.grey};
+  border-radius: ${props => props.theme.borderR.xs};
 
   padding: 14px 12px;
   height: 24px;
@@ -35,9 +35,9 @@ const Chevron = styled.img<{ selected: boolean }>`
 const SelectOptions = styled.ul`
   position: relative;
 
-  background-color: ${props => props.theme.main};
-  border: 1px solid ${props => props.theme.grey};
-  border-radius: 4px;
+  background-color: ${props => props.theme.colors.main};
+  border: 1px solid ${props => props.theme.colors.grey};
+  border-radius: ${props => props.theme.borderR.xs};
   list-style: none;
 
   width: 100%;
@@ -46,14 +46,14 @@ const SelectOptions = styled.ul`
 
 const SelectOption = styled.li`
   ${props => props.theme.typography.m}
-  border-radius: 4px;
+  border-radius: ${props => props.theme.borderR.xs};
 
   padding: 14px 12px;
   cursor: pointer;
 
   &:hover {
-    background-color: ${props => props.theme.lightGrey};
-    border-radius: 4px;
+    background-color: ${props => props.theme.colors.lightGrey};
+    border-radius: ${props => props.theme.borderR.xs};
   }
 `;
 

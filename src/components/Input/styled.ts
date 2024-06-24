@@ -8,10 +8,10 @@ const StyledInput = styled.input`
   border: none;
   outline: none;
 
-  border-bottom: 1px solid ${props => props.theme.secondary};
+  border-bottom: 1px solid ${props => props.theme.colors.secondary};
 
   ${props => props.theme.typography.h5}
-  color: ${props => props.theme.secondary};
+  color: ${props => props.theme.colors.secondary};
 
   padding: 0px 0px 6px;
   width: 100%;

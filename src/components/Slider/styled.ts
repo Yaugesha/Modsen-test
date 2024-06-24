@@ -14,14 +14,14 @@ const SliderContent = styled.div<{ gap: number }>`
   display: flex;
   gap: ${props => props.gap}px;
 
-  transition: left 0.5s;
+  transition: left ${props => props.theme.transition.ms500};
 `;
 
 const ImageWrapper = styled.div<{ width: number; height: number }>`
   display: flex;
   justify-content: center;
 
-  border-radius: 16px;
+  border-radius: ${props => props.theme.borderR.m};
 
   width: ${props => props.width}px;
   height: ${props => props.height}px;
@@ -46,15 +46,15 @@ const SliderPagination = styled.div`
 const PaginationItemActive = styled.div`
   width: 16px;
   height: 16px;
-  border: 2px solid ${props => props.theme.accent};
-  border-radius: 99px;
+  border: 2px solid ${props => props.theme.colors.accent};
+  border-radius: ${props => props.theme.borderR.round};
 `;
 
 const PaginationItemInactive = styled.div`
   width: 10px;
   height: 10px;
-  background-color: ${props => props.theme.accent};
-  border-radius: 99px;
+  background-color: ${props => props.theme.colors.accent};
+  border-radius: ${props => props.theme.borderR.round};
   cursor: pointer;
 `;
 

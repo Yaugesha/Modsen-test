@@ -28,7 +28,7 @@ const Action = styled.div<{ top: number }>`
   height: 64px;
   width: 100%;
 
-  transition: all 0.4s;
+  transition: all ${props => props.theme.transition.ms400};
   cursor: pointer;
 
   &:hover,
@@ -55,7 +55,7 @@ const ImageContainer = styled.div<{ size: number }>`
 
 const Image = styled.img<{ size: number }>`
   align-self: center;
-  border-radius: 8px;
+  border-radius: ${props => props.theme.borderR.s};
 
   max-height: ${props => props.size}px;
   max-width: ${props => props.size}px;
@@ -73,7 +73,7 @@ const Title = styled.p`
 
 const Price = styled.span`
   ${props => props.theme.typography.h4}
-  color: ${props => props.theme.accent}
+  color: ${props => props.theme.colors.accent}
 `;
 
 export { Card, ImageContainer, Image, Title, Price, Action };

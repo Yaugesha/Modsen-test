@@ -8,14 +8,14 @@ const StyledFooter = styled.footer`
   align-items: center;
   justify-content: space-between;
 
-  border-top: 1px solid ${props => props.theme.grey};
+  border-top: 1px solid ${props => props.theme.colors.grey};
 
   ${props => props.theme.typography.h5}
-  color: ${props => props.theme.darkGrey};
+  color: ${props => props.theme.colors.darkGrey};
 
   max-width: 1248px;
   height: 159px;
-  padding-top: 40px;
+  padding-top: ${props => props.theme.paddings.l};
 `;
 
 const NavList = styled.ul`
@@ -36,16 +36,16 @@ const Input = styled.input`
   border: none;
   outline: none;
 
-  border-bottom: 1px solid ${props => props.theme.secondary};
+  border-bottom: 1px solid ${props => props.theme.colors.secondary};
 
   ${props => props.theme.typography.h5}
-  color: ${props => props.theme.secondary};
+  color: ${props => props.theme.colors.secondary};
 
-  padding-bottom: 6px;
+  padding-bottom: ${props => props.theme.paddings.s};
 `;
 
 const Highlited = styled.span`
-  color: ${props => props.theme.secondary};
+  color: ${props => props.theme.colors.secondary};
 `;
 
 export { StyledFooter, NavList, Input, Highlited };

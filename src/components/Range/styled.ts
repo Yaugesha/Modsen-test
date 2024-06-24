@@ -8,7 +8,7 @@ const RangeContainer = styled.div`
 const StyledRange = styled.div`
   position: absolute;
 
-  background-color: ${props => props.theme.secondary};
+  background-color: ${props => props.theme.colors.secondary};
 
   width: 100%;
   height: 2px;
@@ -18,7 +18,7 @@ const RangeLine = styled.div`
   position: relative;
   top: 4px;
 
-  background-color: ${props => props.theme.grey};
+  background-color: ${props => props.theme.colors.grey};
 
   width: 100%;
   height: 2px;
@@ -29,7 +29,7 @@ const RangeBorder = styled.div<{ position: string }>`
   top: -4px;
   left: ${props => (props.position == 'left' ? '0%' : '100%')};
 
-  background-color: ${props => props.theme.secondary};
+  background-color: ${props => props.theme.colors.secondary};
 
   width: 2px;
   height: 10px;
@@ -42,7 +42,7 @@ const RangeInfo = styled.div`
   flex-flow: row;
   justify-content: space-between;
 
-  margin-top: 16px;
+  margin-top: ${props => props.theme.margins.s};
 `;
 
 const RangeInput = styled.div`
@@ -53,7 +53,7 @@ const RangeInput = styled.div`
 
 const RangeInputLabel = styled.div`
   ${props => props.theme.typography.h5}
-  padding-bottom: 6px;
+  padding-bottom: ${props => props.theme.paddings.xs};
 `;
 
 export {

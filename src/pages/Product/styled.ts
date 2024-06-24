@@ -20,7 +20,7 @@ const PhotoContainer = styled.div<{ size: number }>`
 
 const Photo = styled.img<{ size: number }>`
   align-self: center;
-  border-radius: 8px;
+  border-radius: ${props => props.theme.borderR.s};
 
   max-height: ${props => props.size}px;
   max-width: ${props => props.size}px;
@@ -32,21 +32,21 @@ const MainHeading = styled.h2`
 
 const ProductPrice = styled.span`
   ${props => props.theme.typography.h4};
-  color: ${props => props.theme.accent};
+  color: ${props => props.theme.colors.accent};
 `;
 
 const Description = styled.p`
   ${props => props.theme.typography.h5};
-  color: ${props => props.theme.darkGrey};
+  color: ${props => props.theme.colors.darkGrey};
 `;
 
 const Highlited = styled.span`
-  color: ${props => props.theme.secondary};
+  color: ${props => props.theme.colors.secondary};
 `;
 
 const Categories = styled.p`
   ${props => props.theme.typography.h5};
-  color: ${props => props.theme.darkGrey};
+  color: ${props => props.theme.colors.darkGrey};
 `;
 
 const DescriptionSection = styled.section`

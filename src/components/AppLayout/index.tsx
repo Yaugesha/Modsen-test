@@ -1,13 +1,13 @@
 import { Outlet } from 'react-router-dom';
 import { ThemeProvider } from 'styled-components';
-import { GlobalStyle, lightTheme, typography } from './styled';
+import { GlobalStyle } from './styled';
 import Header from '@components/Header/index';
 import Footer from '@components/Footer';
+import { baseTheme } from '@constants/themes';
 
 const AppLayout = () => {
   const theme = {
-    ...lightTheme,
-    ...typography,
+    ...baseTheme,
   };
 
   return (
