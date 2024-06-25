@@ -1,5 +1,5 @@
 import cartImage from '@assets/images/icons/cart.svg';
-import searchImage from '@assets/images/icons/search.svg';
+import loginImage from '@assets/images/icons/login.svg';
 import logoImage from '@assets/images/logo/desktop.png';
 import Group from '@components/Containers/Group';
 import { Link } from 'react-router-dom';
@@ -27,9 +27,11 @@ const Header = () => {
           </NavList>
         </nav>
         <Switcher />
-        <Icon src={searchImage} alt="search" />
         <Link to="/cart">
           <Icon src={cartImage} alt="cart" />
+        </Link>
+        <Link to="/authorization">
+          <Icon src={loginImage} alt="login" />
         </Link>
       </Group>
     </StyledHeader>

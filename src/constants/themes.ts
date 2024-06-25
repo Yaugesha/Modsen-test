@@ -81,6 +81,7 @@ const baseTheme = {
     l: '64px',
     m: '40px',
     s: '16px',
+    xs: '6px',
   },
 
   borderR: {

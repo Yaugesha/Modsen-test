@@ -4,7 +4,7 @@ import { baseTheme } from '@constants/themes';
 import { Outlet } from 'react-router-dom';
 import { ThemeProvider } from 'styled-components';
 
-import { GlobalStyle } from './styled';
+import { Container, GlobalStyle } from './styled';
 
 const AppLayout = () => {
   const theme = {
@@ -13,12 +13,14 @@ const AppLayout = () => {
 
   return (
     <ThemeProvider theme={theme}>
-      <GlobalStyle />
-      <Header />
-      <main>
-        <Outlet />
-      </main>
-      <Footer />
+      <Container>
+        <GlobalStyle />
+        <Header />
+        <main>
+          <Outlet />
+        </main>
+        <Footer />
+      </Container>
     </ThemeProvider>
   );
 };

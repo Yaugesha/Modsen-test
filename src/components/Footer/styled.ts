@@ -1,6 +1,9 @@
 import styled from 'styled-components';
 
 const StyledFooter = styled.footer`
+  position: absolute;
+  bottom: 0px;
+
   display: grid;
   grid-template-columns: auto 32%;
   grid-template-rows: repeat(2, 41px);
@@ -13,6 +16,7 @@ const StyledFooter = styled.footer`
   ${props => props.theme.typography.h5}
   color: ${props => props.theme.colors.darkGrey};
 
+  width: 100%;
   max-width: 1248px;
   height: 159px;
   padding-top: ${props => props.theme.paddings.l};

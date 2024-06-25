@@ -1,5 +1,5 @@
 import font from '@assets/fonts/DM_Sans/DMSans-VariableFont_opsz,wght.ttf';
-import { createGlobalStyle } from 'styled-components';
+import styled, { createGlobalStyle } from 'styled-components';
 
 const GlobalStyle = createGlobalStyle`
   @font-face {
@@ -12,6 +12,7 @@ const GlobalStyle = createGlobalStyle`
   body {
     font-family: 'DM Sans', sans-serif;
     color: ${props => props.theme.colors.secondary};
+    background-color: ${props => props.theme.colors.main};;
 
     max-width: 1248px;
     padding: 64px 96px 16px;
@@ -23,6 +24,23 @@ const GlobalStyle = createGlobalStyle`
     margin: 0;
     text-decoration: none;
   }
+
+  input::-webkit-outer-spin-button,
+  input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
+  input[type=number] {
+    -moz-appearance: textfield;
+  }
+
 `;
 
-export { GlobalStyle };
+const Container = styled.div`
+  position: relative;
+  min-height: calc(100vh - 280px);
+  padding-bottom: 200px;
+`;
+
+export { Container, GlobalStyle };
