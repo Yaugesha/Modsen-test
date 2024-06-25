@@ -2,11 +2,17 @@ import { StyledButton } from './styled';
 
 interface ButtonProps {
   name: string;
-  handleClick: () => void;
+  handleClick?: () => void;
+  disabled?: boolean;
+  type?: string;
 }
 
-const Button = ({ name, handleClick }: ButtonProps) => {
-  return <StyledButton onClick={handleClick}>{name}</StyledButton>;
+const Button = ({ name, handleClick, disabled, type }: ButtonProps) => {
+  return (
+    <StyledButton disabled={disabled} onClick={handleClick} type={type}>
+      {name}
+    </StyledButton>
+  );
 };
 
 export default Button;

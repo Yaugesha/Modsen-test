@@ -19,6 +19,14 @@ const StyledButton = styled.button`
     background-color: ${props => props.theme.colors.secondary};
     color: ${props => props.theme.colors.main};
   }
+
+  &:disabled {
+    background-color: ${props => props.theme.colors.lightGrey};
+    color: ${props => props.theme.colors.darkGrey};
+
+    border-color: ${props => props.theme.colors.darkGrey};
+    cursor: default;
+  }
 `;
 
 export { StyledButton };

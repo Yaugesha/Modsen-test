@@ -7,13 +7,14 @@ import Group from '@components/Containers/Group/index';
 import Stack from '@components/Containers/Stack/index';
 import ProductCard from '@components/ProductCard';
 import Slider from '@components/Slider';
+import { CartItem } from '@customTypes/Cart';
 import { Product } from '@customTypes/Product';
 import { Slide } from '@customTypes/Slider';
 import {
   useGetProductQuery,
   useLazyGetCategoryIdSortedProductsQuery,
 } from '@services/shopApi';
-import { useAppDispatch } from '@utils/hooks/storeHooks';
+import { useAppDispatch, useAppSelector } from '@utils/hooks/storeHooks';
 import { createSlides, fullCost, getProductId } from '@utils/productHelper';
 import { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
@@ -31,11 +32,13 @@ import {
   SectionHeading,
   SimilarItemsSection,
 } from './styled';
+import ItemCounter from '@components/ItemCounter';
 
 const Product = () => {
   const [similarItems, setSimilarItems] = useState<Product[]>();
   const loaction = useLocation();
   const dispatch = useAppDispatch();
+  const cart = useAppSelector(state => state.cart);
 
   const handleAddToCart = () => {
     dispatch({ type: 'cart/addProduct', payload: data });
@@ -47,6 +50,18 @@ const Product = () => {
 
   const handleChangeSimilarItems = (items: Product[]) => {
     setSimilarItems(items);
+  };
+
+  const isItemInCart = (product: Product) => {
+    return !!cart.products.find(
+      (cartItem: CartItem) => cartItem.product.id == product.id,
+    );
+  };
+
+  const getItemCount = (product: Product) => {
+    return cart.products.find(
+      (cartItem: CartItem) => cartItem.product.id == product.id,
+    )!.count;
   };
 
   const [fetchSimilarProducts, {}] = useLazyGetCategoryIdSortedProductsQuery();
@@ -99,7 +114,22 @@ const Product = () => {
               </Stack>
               <Stack justify="space-between" height={452}>
                 <Description>{data?.description}</Description>
-                <Button name="Add to cart" handleClick={handleAddToCart} />
+                <Group gap={16}>
+                  <Button
+                    disabled={isItemInCart(data)}
+                    name={isItemInCart(data) ? 'In cart' : 'Add to cart'}
+                    handleClick={handleAddToCart}
+                  />
+                  <>
+                    {isItemInCart(data) && (
+                      <ItemCounter
+                        count={getItemCount(data)}
+                        handleDecriment={() => {}}
+                        handleIncriment={() => {}}
+                      />
+                    )}
+                  </>
+                </Group>
                 <Stack gap={64}>
                   <Group gap={30}>
                     <img src={mail} alt="mail" />
