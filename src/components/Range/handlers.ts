@@ -56,17 +56,17 @@ const handleInputMinValueForLine = (
 const handleInputMaxValueForLine = (
   maxRangeValue: number,
   rangeElements: RangeElements,
-  newMaxvalue: number,
+  newMaxValue: number,
   minValue: number,
 ) => {
   const { rangeLine, maxValBorder, currentRangeLine } = { ...rangeElements };
   const newBorder = countRangeBorder(
     rangeLine.current!.offsetWidth,
     maxRangeValue,
-    newMaxvalue,
+    newMaxValue,
   );
-  currentRangeLine.current!.style.width = `${countRangelength(rangeLine.current!.offsetWidth, newMaxvalue - minValue, maxRangeValue)}px`;
-  currentRangeLine.current!.style.right = `${currentRangeLine.current!.offsetWidth - newBorder}px`;
+  currentRangeLine.current!.style.width = `${countRangelength(rangeLine.current!.offsetWidth, newMaxValue - minValue, maxRangeValue)}px`;
+  currentRangeLine.current!.style.right = `${rangeLine.current!.offsetWidth - newBorder}px`;
   maxValBorder.current!.style.left = `${newBorder}px`;
 };
 
@@ -119,18 +119,21 @@ const handleMouseMove = (
   const currentRangeLineX = currentRangeLine.current!.getBoundingClientRect().x;
   const currentRangeLineWidth = currentRangeLine.current!.offsetWidth;
 
-  if (isDragging.min) {
-    minValBorder.current!.style.left = `${length}px`;
-    currentRangeLine.current!.style.left = `${length}px`;
-    currentRangeLine.current!.style.width = `${currentRangeLineWidth - (e.clientX - currentRangeLineX)}px`;
-    setMinValue(countRangeBorderValue(length, maxRangeValue, rangeLineWidth));
-  }
-  if (isDragging.max) {
-    const newWidth =
-      Math.min(length, rangeLineWidth) - currentRangeLineX + rangeLineX;
-    maxValBorder.current!.style.left = `${length}px`;
-    currentRangeLine.current!.style.width = `${newWidth}px`;
-    setMaxValue(countRangeBorderValue(length, maxRangeValue, rangeLineWidth));
+  if (length >= -0.5 && length <= rangeLineWidth + 0.5) {
+    if (isDragging.min) {
+      minValBorder.current!.style.left = `${length}px`;
+      currentRangeLine.current!.style.left = `${length}px`;
+      currentRangeLine.current!.style.width = `${currentRangeLineWidth - (e.clientX - currentRangeLineX)}px`;
+      setMinValue(countRangeBorderValue(length, maxRangeValue, rangeLineWidth));
+    }
+    if (isDragging.max) {
+      const newWidth =
+        Math.min(length, rangeLineWidth) - currentRangeLineX + rangeLineX;
+      maxValBorder.current!.style.left = `${length}px`;
+      currentRangeLine.current!.style.width = `${newWidth}px`;
+      currentRangeLine.current!.style.right = `${rangeLine.current!.offsetWidth - length}px`;
+      setMaxValue(countRangeBorderValue(length, maxRangeValue, rangeLineWidth));
+    }
   }
 };
 

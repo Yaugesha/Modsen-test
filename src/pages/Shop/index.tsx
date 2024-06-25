@@ -19,6 +19,7 @@ const Shop = () => {
     maxValue,
     setMinValue,
     setMaxValue,
+    range,
   } = useProductSort(sortBy, shopBy);
 
   const handleInputSearch: React.ChangeEventHandler<HTMLInputElement> = e => {
@@ -34,11 +35,13 @@ const Shop = () => {
   };
 
   const handleSetMinValue = (newValue: number) => {
-    setMinValue(newValue);
+    if (newValue > range[0]) setMinValue(newValue);
+    else setMinValue(range[0]);
   };
 
   const handleSetMaxValue = (newValue: number) => {
-    setMaxValue(newValue);
+    if (newValue < range[1]) setMaxValue(newValue);
+    else setMaxValue(range[1]);
   };
 
   const filteredProducts = (products: Product[]): Array<Product> => {
@@ -57,7 +60,7 @@ const Shop = () => {
       <SectionContent>
         <Filters
           handleInputSearch={handleInputSearch}
-          priceRange={[0, 1000]}
+          priceRange={range}
           setSortBy={handleSelectSortBy}
           setShopBy={handleSelectShopBy}
           minValue={minValue}

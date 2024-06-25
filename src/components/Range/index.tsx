@@ -106,7 +106,7 @@ const Range = ({
               handleInputMinValueForLine(
                 range[1],
                 rangeElements as RangeElements,
-                minValue,
+                Number(e.target.value),
                 maxValue,
               );
             }}
@@ -123,7 +123,7 @@ const Range = ({
               handleInputMaxValueForLine(
                 range[1],
                 rangeElements as RangeElements,
-                maxValue,
+                Number(e.target.value),
                 minValue,
               );
             }}
