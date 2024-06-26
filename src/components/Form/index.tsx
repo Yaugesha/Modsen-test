@@ -1,27 +1,36 @@
 import Button from '@components/Button';
 import Input from '@components/Input';
 import { AuthorizationForm, AuthorizationParams } from '@pages/Authorization';
+import { ContactForm, ContactPrams } from '@pages/Contact';
 import { RegistartionForm, RegistrtionParams } from '@pages/Registartion';
 import { useFormik } from 'formik';
 import { AnyObject } from 'yup';
 
-import { ErrorMessage, FormField, FormLabel, StyledForm } from './styled';
+import {
+  ErrorMessage,
+  FormButton,
+  FormField,
+  FormLabel,
+  StyledForm,
+} from './styled';
 
 export interface formInputProp {
   id: string;
   type: string;
-  label: string;
+  label?: string;
   placeholder: string;
 }
 
-type FormValues = RegistartionForm | AuthorizationForm;
+type FormValues = RegistartionForm | AuthorizationForm | ContactForm;
+export type FormParams = RegistrtionParams | AuthorizationParams | ContactPrams;
 
 interface FormProps {
   validationSchema: AnyObject;
-  initialValues: RegistartionForm | AuthorizationForm;
+  initialValues: FormValues;
   fields: formInputProp[];
-  handleSubmit: (credentials: RegistrtionParams | AuthorizationParams) => void;
+  handleSubmit: (credentials: FormParams) => Promise<void>;
   submitButtonName: string;
+  type: 'flex' | 'grid';
 }
 
 const Form = ({
@@ -30,6 +39,7 @@ const Form = ({
   fields,
   handleSubmit,
   submitButtonName,
+  type,
 }: FormProps) => {
   const formik = useFormik({
     initialValues: initialValues,
@@ -39,12 +49,16 @@ const Form = ({
     },
   });
 
+  const getCharCode = (indx: number) => {
+    if (type === 'grid') return String.fromCharCode(indx + 97);
+  };
+
   return (
-    <StyledForm onSubmit={formik.handleSubmit}>
-      {fields.map((inputField: formInputProp) => {
+    <StyledForm type={type} onSubmit={formik.handleSubmit}>
+      {fields.map((inputField: formInputProp, indx: number) => {
         const formikFieldParam = inputField.id as keyof FormValues;
         return (
-          <FormField key={inputField.id}>
+          <FormField area={getCharCode(indx)} key={inputField.id}>
             <FormLabel htmlFor={inputField.id}>{inputField.label}</FormLabel>
             <Input
               inputHandler={formik.handleChange}
@@ -60,7 +74,9 @@ const Form = ({
           </FormField>
         );
       })}
-      <Button name={submitButtonName} type="submit" />
+      <FormButton area={() => (type === 'grid' ? 'f' : '')}>
+        <Button name={submitButtonName} type="submit" />
+      </FormButton>
     </StyledForm>
   );
 };

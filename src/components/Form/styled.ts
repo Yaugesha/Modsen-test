@@ -1,14 +1,31 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
-const StyledForm = styled.form`
+const flexForm = css`
   display: flex;
   flex-direction: column;
   align-items: center;
+`;
+
+const gridForm = css`
+  display: grid;
+  grid-template-areas:
+    'a b'
+    'c d'
+    'e e'
+    'f f';
+  row-gap: 94px;
+  column-gap: 119px;
+`;
+
+const StyledForm = styled.form<{ type: 'flex' | 'grid' }>`
+  ${props => (props.type === 'flex' ? flexForm : gridForm)}
 
   width: 100%;
 `;
 
-const FormField = styled.div`
+const FormField = styled.div<{ area: 'string' }>`
+  grid-area: ${props => (props.area ? props.area : '')};
+
   margin-bottom: ${props => props.theme.margins.s};
   width: 100%;
 `;
@@ -25,4 +42,10 @@ const ErrorMessage = styled.div`
   margin-top: ${props => props.theme.margins.xs};
 `;
 
-export { ErrorMessage, FormField, FormLabel, StyledForm };
+const FormButton = styled.div<{ area?: number }>`
+  display: flex;
+  justify-content: center;
+  grid-area: ${props => (props.area ? props.area : '')};
+`;
+
+export { ErrorMessage, FormButton, FormField, FormLabel, StyledForm };

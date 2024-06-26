@@ -41,7 +41,7 @@ const Header = () => {
             <Link to="/shop">
               <NavItem>Shop</NavItem>
             </Link>
-            <Link to="/product/1">
+            <Link to="/contact">
               <NavItem>Contacts</NavItem>
             </Link>
           </NavList>

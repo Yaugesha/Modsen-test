@@ -1,4 +1,4 @@
-import Form, { formInputProp } from '@components/Form';
+import Form, { formInputProp, FormParams } from '@components/Form';
 import { auth } from '@services/firebaseApi';
 import { signInWithEmailAndPassword } from 'firebase/auth';
 import { Link } from 'react-router-dom';
@@ -49,8 +49,10 @@ const Authorization = () => {
     password: '',
   };
 
-  const handleAuthorization = async (credentials: AuthorizationParams) => {
-    const { email, password } = { ...credentials };
+  const handleAuthorization = async (credentials: FormParams) => {
+    const AuthCredentials = credentials as AuthorizationParams;
+    const email = AuthCredentials.email;
+    const password = AuthCredentials.password;
 
     signInWithEmailAndPassword(auth, email, password)
       .then(userCredential => {
@@ -73,6 +75,7 @@ const Authorization = () => {
         fields={fields}
         handleSubmit={handleAuthorization}
         submitButtonName="Sign In"
+        type="flex"
       />
       <MessageToRegistartion>
         Don't have an account?{' '}

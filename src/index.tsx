@@ -1,6 +1,7 @@
 import AppLayout from '@components/AppLayout/index';
 import Authorization from '@pages/Authorization';
 import Cart from '@pages/Cart';
+import Contact from '@pages/Contact';
 import Home from '@pages/Home/index';
 import Product from '@pages/Product/index';
 import Registration from '@pages/Registartion';
@@ -44,6 +45,10 @@ const router = createBrowserRouter([
       {
         path: '/registration',
         element: <Registration />,
+      },
+      {
+        path: '/contact',
+        element: <Contact />,
       },
     ],
   },
