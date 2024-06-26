@@ -1,3 +1,4 @@
+import { PRODUCT_ROUTE } from '@constants/routes';
 import { Product } from '@customTypes/Product';
 import { useAppDispatch } from '@utils/hooks/storeHooks';
 import { fullCost } from '@utils/productHelper';
@@ -24,7 +25,8 @@ const ProductCard = ({ product, width, height }: ProductCard) => {
 
   const handleNavigate = (e: MouseEvent) => {
     const target = e.target;
-    if (target !== buttonRef.current) navigate(`/product/${product.id}`);
+    if (target !== buttonRef.current)
+      navigate(`${PRODUCT_ROUTE}/${product.id}`);
   };
 
   return (

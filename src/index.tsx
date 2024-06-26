@@ -1,4 +1,13 @@
 import AppLayout from '@components/AppLayout/index';
+import {
+  AUTHORIZATIO_ROUTE,
+  CART_ROUTE,
+  CONTACT_ROUTE,
+  HOME_ROUTE,
+  PRODUCT_ROUTE,
+  REGISTRATION_ROUTE,
+  SHOP_ROUTE,
+} from '@constants/routes';
 import Authorization from '@pages/Authorization';
 import Cart from '@pages/Cart';
 import Contact from '@pages/Contact';
@@ -18,15 +27,15 @@ const router = createBrowserRouter([
 
     children: [
       {
-        path: '/',
+        path: HOME_ROUTE,
         element: <Home />,
       },
       {
-        path: '/shop',
+        path: SHOP_ROUTE,
         element: <Shop />,
       },
       {
-        path: '/product',
+        path: PRODUCT_ROUTE,
         children: [
           {
             path: ':id',
@@ -35,19 +44,19 @@ const router = createBrowserRouter([
         ],
       },
       {
-        path: '/cart',
+        path: CART_ROUTE,
         element: <Cart />,
       },
       {
-        path: '/authorization',
+        path: AUTHORIZATIO_ROUTE,
         element: <Authorization />,
       },
       {
-        path: '/registration',
+        path: REGISTRATION_ROUTE,
         element: <Registration />,
       },
       {
-        path: '/contact',
+        path: CONTACT_ROUTE,
         element: <Contact />,
       },
     ],

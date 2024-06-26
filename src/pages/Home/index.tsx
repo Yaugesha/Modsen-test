@@ -1,5 +1,6 @@
 import ProductCard from '@components/ProductCard';
 import Slider from '@components/Slider';
+import { SHOP_ROUTE } from '@constants/routes';
 import { Product } from '@customTypes/Product';
 import { useGetProductsQuery } from '@services/shopApi';
 import { Link } from 'react-router-dom';
@@ -28,7 +29,7 @@ const Home = () => {
       <ProductSection>
         <SectionHeader>
           <SectionHeading>Shop the latest</SectionHeading>
-          <Link to="/shop">
+          <Link to={SHOP_ROUTE}>
             <ShopLink>View all</ShopLink>
           </Link>
         </SectionHeader>

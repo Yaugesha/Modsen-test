@@ -1,4 +1,5 @@
 import Form, { formInputProp, FormParams } from '@components/Form';
+import { AUTHORIZATIO_ROUTE } from '@constants/routes';
 import { auth } from '@services/firebaseApi';
 import { createUserWithEmailAndPassword } from 'firebase/auth';
 import { Link } from 'react-router-dom';
@@ -90,7 +91,7 @@ const Registration = () => {
       />
       <MessageToAuthorization>
         Already have an account?{' '}
-        <Link to="/authorization">
+        <Link to={AUTHORIZATIO_ROUTE}>
           <LinkToAuthorization>Sign In</LinkToAuthorization>
         </Link>
       </MessageToAuthorization>

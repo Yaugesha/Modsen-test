@@ -5,6 +5,7 @@ import twitter from '@assets/images/socials/twitter.svg';
 import Button from '@components/Button';
 import Group from '@components/Containers/Group/index';
 import Stack from '@components/Containers/Stack/index';
+import ItemCounter from '@components/ItemCounter';
 import ProductCard from '@components/ProductCard';
 import Slider from '@components/Slider';
 import { CartItem } from '@customTypes/Cart';
@@ -32,7 +33,6 @@ import {
   SectionHeading,
   SimilarItemsSection,
 } from './styled';
-import ItemCounter from '@components/ItemCounter';
 
 const Product = () => {
   const [similarItems, setSimilarItems] = useState<Product[]>();
