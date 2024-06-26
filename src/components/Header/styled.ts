@@ -50,7 +50,7 @@ const Switcher = styled.div`
   &:before {
     position: absolute;
     top: 2px;
-    left: 2px;
+    left: var(--left, 2px);
 
     content: '';
     background-color: ${props => props.theme.colors.main};
