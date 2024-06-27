@@ -5,9 +5,9 @@ import {
   darkThemeColors,
   lightThemeColors,
 } from '@constants/themes';
-import { useAppSelector } from '@utils/hooks/storeHooks';
 import { useEffect, useState } from 'react';
 import { Outlet } from 'react-router-dom';
+import { useAppSelector } from 'src/hooks/store/useAppSelector';
 import { ThemeProvider } from 'styled-components';
 
 import { Container, GlobalStyle } from './styled';

@@ -1,7 +1,7 @@
 import CartItem from '@components/CartItem';
-import { CartItem as CartItemType } from '@customTypes/Cart';
+import { CartItem as CartItemType } from '@customTypes/cart';
 import { Heading } from '@pages/Shop/styled';
-import { useAppSelector } from '@utils/hooks/storeHooks';
+import { useAppSelector } from 'src/hooks/store/useAppSelector';
 
 const Cart = () => {
   const cart = useAppSelector(state => state.cart);

@@ -1,7 +1,7 @@
 import ProductCard from '@components/ProductCard';
 import Slider from '@components/Slider';
 import { SHOP_ROUTE } from '@constants/routes';
-import { Product } from '@customTypes/Product';
+import { Product } from '@customTypes/product';
 import { useGetProductsQuery } from '@services/shopApi';
 import { Link } from 'react-router-dom';
 

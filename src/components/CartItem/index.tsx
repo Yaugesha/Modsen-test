@@ -3,7 +3,7 @@ import Group from '@components/Containers/Group';
 import Stack from '@components/Containers/Stack';
 import ItemCounter from '@components/ItemCounter';
 import { Image, ImageContainer } from '@components/ProductCard/styled';
-import { Product } from '@customTypes/Product';
+import { Product } from '@customTypes/product';
 import { fullCost } from '@utils/productHelper';
 
 import {

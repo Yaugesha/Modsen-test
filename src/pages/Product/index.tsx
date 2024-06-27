@@ -8,17 +8,18 @@ import Stack from '@components/Containers/Stack/index';
 import ItemCounter from '@components/ItemCounter';
 import ProductCard from '@components/ProductCard';
 import Slider from '@components/Slider';
-import { CartItem } from '@customTypes/Cart';
-import { Product } from '@customTypes/Product';
-import { Slide } from '@customTypes/Slider';
+import { CartItem } from '@customTypes/cart';
+import { Product } from '@customTypes/product';
+import { Slide } from '@customTypes/slider';
 import {
   useGetProductQuery,
   useLazyGetCategoryIdSortedProductsQuery,
 } from '@services/shopApi';
-import { useAppDispatch, useAppSelector } from '@utils/hooks/storeHooks';
 import { createSlides, fullCost, getProductId } from '@utils/productHelper';
 import { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
+import { useAppDispatch } from 'src/hooks/store/useAppDispatch';
+import { useAppSelector } from 'src/hooks/store/useAppSelector';
 
 import {
   Categories,

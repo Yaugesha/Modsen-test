@@ -1,4 +1,4 @@
-import { Slide } from '@customTypes/Slider';
+import { Slide } from '@customTypes/slider';
 import { useEffect, useState } from 'react';
 
 import {

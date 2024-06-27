@@ -1,4 +1,4 @@
-import { Product } from '@customTypes/Product';
+import { Product } from '@customTypes/product';
 import { createReducer } from '@reduxjs/toolkit';
 import {
   addProduct,

@@ -1,4 +1,4 @@
-import { Product } from '@customTypes/Product';
+import { Product } from '@customTypes/product';
 import { createAction, PayloadAction } from '@reduxjs/toolkit';
 import { cartProduct, CartState } from '@store/reducers/cart';
 

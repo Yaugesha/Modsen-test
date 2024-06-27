@@ -1,6 +1,6 @@
 import chevron from '@assets/images/icons/chevron.svg';
-import { useClickOutside } from '@utils/hooks/browserEventsHooks';
 import { useRef, useState } from 'react';
+import { useClickOutside } from 'src/hooks/useClickOutside';
 
 import {
   Chevron,

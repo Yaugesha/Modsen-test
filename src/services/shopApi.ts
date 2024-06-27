@@ -1,5 +1,5 @@
 import { SHOP_API_URL } from '@constants/apiConstants';
-import type { Product } from '@customTypes/Product';
+import type { Product } from '@customTypes/product';
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 
 export const shopApi = createApi({

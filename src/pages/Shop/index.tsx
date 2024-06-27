@@ -1,8 +1,8 @@
 import Filters from '@components/Filters';
 import ProductCard from '@components/ProductCard';
-import { Product } from '@customTypes/Product';
-import { useProductSort } from '@utils/hooks/sortHooks';
+import { Product } from '@customTypes/product';
 import { useState } from 'react';
+import { useProductSort } from 'src/hooks/useProductSort';
 
 import { CardsContainer, Heading, SectionContent } from './styled';
 

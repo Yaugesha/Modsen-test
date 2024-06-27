@@ -1,11 +1,9 @@
-import { Product } from '@customTypes/Product';
+import { Product } from '@customTypes/product';
 import { useEffect, useState } from 'react';
 
-import {
-  useAllProducts,
-  useCategoryIdSortedProducts,
-  useIdSortedProducts,
-} from './apiShopHooks';
+import { useAllProducts } from './apiShop/useAllProducts';
+import { useCategoryIdSortedProducts } from './apiShop/useCategoryIdSortedProducts';
+import { useIdSortedProducts } from './apiShop/useIdSortedProducts';
 
 export const useProductSort = (sortBy: string, shopBy: string) => {
   const [products, setProducts] = useState<Product[]>([]);

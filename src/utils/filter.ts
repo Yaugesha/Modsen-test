@@ -1,4 +1,4 @@
-import { Product } from '../types/Product';
+import { Product } from '../types/product';
 
 const findCategories = (products: Product[]): string[] => {
   return Array.from(new Set(products.map(product => product.category)));
