@@ -3,7 +3,7 @@ import Stack from '@components/Containers/Stack';
 import Input from '@components/Input/index';
 import Range from '@components/Range';
 import Select from '@components/Select/index';
-import { useAllCategoties } from 'src/hooks/apiShop/useAllCategories';
+import { useAllCategoties } from '@hooks/apiShop/useAllCategories';
 
 import { StyledFilters } from './styled';
 import { FiltersProps } from './types';

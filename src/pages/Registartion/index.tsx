@@ -1,9 +1,11 @@
-import Form, { formInputProp, FormParams } from '@components/Form';
+import Form from '@components/Form';
+import { FormParams } from '@components/Form/types';
+import { REGISTRATION_FIELDS } from '@constants/forms';
 import { AUTHORIZATIO_ROUTE } from '@constants/routes';
+import { AuthCredentials } from '@customTypes/authCredentials';
 import { auth } from '@services/firebaseApi';
 import { createUserWithEmailAndPassword } from 'firebase/auth';
 import { Link } from 'react-router-dom';
-import * as Yup from 'yup';
 
 import {
   FormContainer,
@@ -11,50 +13,10 @@ import {
   LinkToAuthorization,
   MessageToAuthorization,
 } from './styled';
-
-const validationSchema = Yup.object({
-  email: Yup.string().email('Invalid email').required('Email is required'),
-  password: Yup.string()
-    .min(6, 'Password must be at least 6 characters')
-    .required('Password is required'),
-  confirmPassword: Yup.string()
-    .oneOf([Yup.ref('password')], 'Passwords must match')
-    .required('Confirm Password is required'),
-});
-
-export interface RegistartionForm {
-  email: string;
-  password: string;
-  confirmPassword: string;
-}
-
-export interface RegistrtionParams {
-  email: string;
-  password: string;
-}
+import { RegistartionForm } from './types';
+import { validationSchema } from './validation';
 
 const Registration = () => {
-  const fields: formInputProp[] = [
-    {
-      id: 'email',
-      type: 'text',
-      label: 'Email Address',
-      placeholder: 'email',
-    },
-    {
-      id: 'password',
-      type: 'password',
-      label: 'Password',
-      placeholder: 'password',
-    },
-    {
-      id: 'confirmPassword',
-      type: 'password',
-      label: 'Confirm Password',
-      placeholder: 'password',
-    },
-  ];
-
   const initialValues: RegistartionForm = {
     email: '',
     password: '',
@@ -62,7 +24,7 @@ const Registration = () => {
   };
 
   const handleRegistration = async (credentials: FormParams) => {
-    const RegistrationCredentials = credentials as RegistrtionParams;
+    const RegistrationCredentials = credentials as AuthCredentials;
     const email = RegistrationCredentials.email;
     const password = RegistrationCredentials.password;
 
@@ -84,7 +46,7 @@ const Registration = () => {
       <Form
         validationSchema={validationSchema}
         initialValues={initialValues}
-        fields={fields}
+        fields={REGISTRATION_FIELDS}
         handleSubmit={handleRegistration}
         submitButtonName="Sign In"
         type="flex"

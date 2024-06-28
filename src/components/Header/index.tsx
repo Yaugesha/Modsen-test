@@ -10,10 +10,10 @@ import {
   HOME_ROUTE,
   SHOP_ROUTE,
 } from '@constants/routes';
+import { useAppDispatch } from '@hooks/store/useAppDispatch';
+import { useAppSelector } from '@hooks/store/useAppSelector';
 import { useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { useAppDispatch } from 'src/hooks/store/useAppDispatch';
-import { useAppSelector } from 'src/hooks/store/useAppSelector';
 
 import { Icon, Logo, NavItem, NavList, StyledHeader, Switcher } from './styled';
 

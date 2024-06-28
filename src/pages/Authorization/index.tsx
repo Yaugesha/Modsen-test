@@ -1,9 +1,11 @@
-import Form, { formInputProp, FormParams } from '@components/Form';
+import Form from '@components/Form';
+import { FormParams } from '@components/Form/types';
+import { AUTHORIZATION_FIELDS } from '@constants/forms';
 import { REGISTRATION_ROUTE } from '@constants/routes';
+import { AuthCredentials } from '@customTypes/authCredentials';
 import { auth } from '@services/firebaseApi';
 import { signInWithEmailAndPassword } from 'firebase/auth';
 import { Link } from 'react-router-dom';
-import * as Yup from 'yup';
 
 import {
   FormContainer,
@@ -11,47 +13,17 @@ import {
   LinkToRegistartion,
   MessageToRegistartion,
 } from './styled';
-
-const validationSchema = Yup.object({
-  email: Yup.string().email('Invalid email').required('Email is required'),
-  password: Yup.string()
-    .min(6, 'Password must be at least 6 characters')
-    .required('Password is required'),
-});
-
-export interface AuthorizationForm {
-  email: string;
-  password: string;
-}
-
-export interface AuthorizationParams {
-  email: string;
-  password: string;
-}
+import { AuthorizationForm } from './types';
+import { validationSchema } from './validation';
 
 const Authorization = () => {
-  const fields: formInputProp[] = [
-    {
-      id: 'email',
-      type: 'text',
-      label: 'Email Address',
-      placeholder: 'email',
-    },
-    {
-      id: 'password',
-      type: 'password',
-      label: 'Password',
-      placeholder: 'password',
-    },
-  ];
-
   const initialValues: AuthorizationForm = {
     email: '',
     password: '',
   };
 
   const handleAuthorization = async (credentials: FormParams) => {
-    const AuthCredentials = credentials as AuthorizationParams;
+    const AuthCredentials = credentials as AuthCredentials;
     const email = AuthCredentials.email;
     const password = AuthCredentials.password;
 
@@ -73,7 +45,7 @@ const Authorization = () => {
       <Form
         validationSchema={validationSchema}
         initialValues={initialValues}
-        fields={fields}
+        fields={AUTHORIZATION_FIELDS}
         handleSubmit={handleAuthorization}
         submitButtonName="Sign In"
         type="flex"

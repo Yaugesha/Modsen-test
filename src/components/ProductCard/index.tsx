@@ -1,9 +1,9 @@
 import { PRODUCT_ROUTE } from '@constants/routes';
 import { Product } from '@customTypes/product';
+import { useAppDispatch } from '@hooks/store/useAppDispatch';
 import { fullCost } from '@utils/productHelper';
 import { useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useAppDispatch } from 'src/hooks/store/useAppDispatch';
 
 import { Action, Card, Image, ImageContainer, Price, Title } from './styled';
 

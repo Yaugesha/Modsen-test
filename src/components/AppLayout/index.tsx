@@ -5,28 +5,19 @@ import {
   darkThemeColors,
   lightThemeColors,
 } from '@constants/themes';
+import { useAppSelector } from '@hooks/store/useAppSelector';
 import { useEffect, useState } from 'react';
 import { Outlet } from 'react-router-dom';
-import { useAppSelector } from 'src/hooks/store/useAppSelector';
 import { ThemeProvider } from 'styled-components';
 
 import { Container, GlobalStyle } from './styled';
-
-interface colors {
-  accent: string;
-  main: string;
-  secondary: string;
-  darkGrey: string;
-  grey: string;
-  lightGrey: string;
-  error: string;
-}
+import { Colors } from './types';
 
 const AppLayout = () => {
   const [theme, setTheme] = useState(baseTheme);
   const themeState = useAppSelector(state => state.theme);
 
-  const toggleThemeColors = (colors: colors) => {
+  const toggleThemeColors = (colors: Colors) => {
     setTheme({ ...theme, colors: colors });
   };
 

@@ -1,14 +1,5 @@
 import { InputButton, InputWrapper, StyledInput } from './styled';
-
-interface InputProps {
-  inputHandler: React.ChangeEventHandler<HTMLInputElement>;
-  placeholder?: string;
-  defaultValue?: string | number;
-  value?: string | number;
-  id?: string;
-  type: string;
-  buttonImage?: string;
-}
+import { InputProps } from './ttypes';
 
 const Input = ({
   inputHandler,

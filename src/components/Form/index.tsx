@@ -1,10 +1,6 @@
 import Button from '@components/Button';
 import Input from '@components/Input';
-import { AuthorizationForm, AuthorizationParams } from '@pages/Authorization';
-import { ContactForm, ContactPrams } from '@pages/Contact';
-import { RegistartionForm, RegistrtionParams } from '@pages/Registartion';
 import { useFormik } from 'formik';
-import { AnyObject } from 'yup';
 
 import {
   ErrorMessage,
@@ -13,25 +9,7 @@ import {
   FormLabel,
   StyledForm,
 } from './styled';
-
-export interface formInputProp {
-  id: string;
-  type: string;
-  label?: string;
-  placeholder: string;
-}
-
-type FormValues = RegistartionForm | AuthorizationForm | ContactForm;
-export type FormParams = RegistrtionParams | AuthorizationParams | ContactPrams;
-
-interface FormProps {
-  validationSchema: AnyObject;
-  initialValues: FormValues;
-  fields: formInputProp[];
-  handleSubmit: (credentials: FormParams) => Promise<void>;
-  submitButtonName: string;
-  type: 'flex' | 'grid';
-}
+import { formInputProp, FormProps, FormValues } from './types';
 
 const Form = ({
   validationSchema,
