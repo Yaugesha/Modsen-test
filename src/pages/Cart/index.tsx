@@ -10,10 +10,10 @@ const Cart = () => {
     <section>
       <Heading>Cart</Heading>
       <ul>
-        {cart.products.map((cartItem: CartItemType, idx: number) => {
+        {cart.products.map((cartItem: CartItemType) => {
           return (
             <CartItem
-              key={idx}
+              key={cartItem.product.id}
               product={cartItem.product}
               count={cartItem.count}
             />

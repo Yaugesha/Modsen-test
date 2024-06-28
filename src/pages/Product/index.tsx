@@ -90,13 +90,8 @@ const Product = () => {
               <Stack justify="space-between" width={120} height={600}>
                 {createSlides(data, 4).map((photo: Slide) => {
                   return (
-                    <PhotoContainer size={120}>
-                      <Photo
-                        key={photo.id}
-                        size={120}
-                        src={photo.image}
-                        alt={photo.title}
-                      />
+                    <PhotoContainer size={120} key={photo.id}>
+                      <Photo size={120} src={photo.image} alt={photo.title} />
                     </PhotoContainer>
                   );
                 })}

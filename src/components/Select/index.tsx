@@ -43,11 +43,14 @@ const Select = ({ options, name, handleSelect }: SelectProps) => {
       </SelectButton>
       {isOptions && (
         <SelectOptions>
-          {options.map((option: string, idx: number) => (
-            <SelectOption key={idx} onClick={() => selectOption(option)}>
-              {option}
-            </SelectOption>
-          ))}
+          {options.map((option: string, idx: number) => {
+            const bindedSelectOption = selectOption.bind(null, option);
+            return (
+              <SelectOption key={idx} onClick={bindedSelectOption}>
+                {option}
+              </SelectOption>
+            );
+          })}
         </SelectOptions>
       )}
     </SelectContainer>

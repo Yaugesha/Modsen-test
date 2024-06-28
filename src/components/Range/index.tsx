@@ -78,6 +78,26 @@ const Range = ({
     };
   }, [isDragging, range]);
 
+  const minValueHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
+    handleInputMinValue(e, setMinValue, setMaxValue, maxValue);
+    handleInputMinValueForLine(
+      range[1],
+      rangeElements as RangeElements,
+      Number(e.target.value),
+      maxValue,
+    );
+  };
+
+  const maxValueHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
+    handleInputMaxValue(e, setMinValue, setMaxValue, minValue);
+    handleInputMaxValueForLine(
+      range[1],
+      rangeElements as RangeElements,
+      Number(e.target.value),
+      minValue,
+    );
+  };
+
   return (
     <RangeContainer>
       <RangeLine ref={rangeLine}>
@@ -101,15 +121,7 @@ const Range = ({
             id="from"
             type="number"
             value={minValue}
-            inputHandler={e => {
-              handleInputMinValue(e, setMinValue, setMaxValue, maxValue);
-              handleInputMinValueForLine(
-                range[1],
-                rangeElements as RangeElements,
-                Number(e.target.value),
-                maxValue,
-              );
-            }}
+            inputHandler={minValueHandler}
           />
         </RangeInput>
         <RangeInput>
@@ -118,15 +130,7 @@ const Range = ({
             id="to"
             type="number"
             value={maxValue}
-            inputHandler={e => {
-              handleInputMaxValue(e, setMinValue, setMaxValue, minValue);
-              handleInputMaxValueForLine(
-                range[1],
-                rangeElements as RangeElements,
-                Number(e.target.value),
-                minValue,
-              );
-            }}
+            inputHandler={maxValueHandler}
           />
         </RangeInput>
       </RangeInfo>
