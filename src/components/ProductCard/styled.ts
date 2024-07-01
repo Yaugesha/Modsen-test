@@ -1,5 +1,9 @@
 import styled from 'styled-components';
 
+const ACTION_HEIGHT = '64px';
+const ACTION_BACKGROUND = 'rgba(256, 256, 256, 0.5)';
+const ACTION_BACKGROUND_HOVER = 'rgba(227, 227, 227, 0.5)';
+
 const Card = styled.div<{ width: number; height: number }>`
   display: flex;
   flex-flow: column;
@@ -23,9 +27,9 @@ const Action = styled.div<{ top: number }>`
   ${props => props.theme.typography.l}
   text-transform: uppercase;
 
-  background-color: rgba(256, 256, 256, 0.5);
+  background-color: ${ACTION_BACKGROUND};
 
-  height: 64px;
+  height: ${ACTION_HEIGHT};
   width: 100%;
 
   transition: all ${props => props.theme.transition.ms400};
@@ -33,7 +37,7 @@ const Action = styled.div<{ top: number }>`
 
   &:hover,
   &:active {
-    background-color: rgba(227, 227, 227, 0.5);
+    background-color: ${ACTION_BACKGROUND_HOVER};
   }
 `;
 

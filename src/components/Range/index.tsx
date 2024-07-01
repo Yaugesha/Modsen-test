@@ -1,3 +1,4 @@
+import Group from '@components/Containers/Group';
 import Input from '@components/Input';
 import {
   handleChangeMaxBorder,
@@ -115,7 +116,7 @@ const Range = ({
       </RangeLine>
 
       <RangeInfo>
-        <RangeInput>
+        <Group gap={4}>
           <RangeInputLabel htmlFor="from">From</RangeInputLabel>
           <Input
             id="from"
@@ -123,7 +124,7 @@ const Range = ({
             value={minValue}
             inputHandler={minValueHandler}
           />
-        </RangeInput>
+        </Group>
         <RangeInput>
           <RangeInputLabel htmlFor="to">To</RangeInputLabel>
           <Input

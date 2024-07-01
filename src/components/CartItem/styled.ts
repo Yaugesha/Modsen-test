@@ -6,7 +6,8 @@ const StyledCartItem = styled.li`
   justify-content: space-between;
 
   border-bottom: 1px solid ${props => props.theme.colors.lightGrey};
-  padding: ${props => props.theme.paddings.m} 0px;
+  padding-top: ${props => props.theme.paddings.m};
+  padding-bottom: ${props => props.theme.paddings.m};
 `;
 
 const ProductTitle = styled.p`

@@ -55,7 +55,7 @@ const CONTACT_FIELDS: formInputProp[] = [
   {
     id: 'subject',
     type: 'text',
-    placeholder: 'Subjsect',
+    placeholder: 'Subject',
   },
   {
     id: 'message',

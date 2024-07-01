@@ -1,8 +1,17 @@
 import styled from 'styled-components';
 
+const RANGE_CONTAINER_HEIGHT = '64px';
+const RANGE_HEIGHT = '2px';
+
+const RANGE_LINE_TOP = '4px';
+
+const RANGE_BORDER_TOP = '-4px';
+const RANGE_BORDER_WIDTH = '2px';
+const RANGE_BORDER_HEIGHT = '10px';
+
 const RangeContainer = styled.div`
   position: relative;
-  height: 64px;
+  height: ${RANGE_CONTAINER_HEIGHT};
 `;
 
 const StyledRange = styled.div`
@@ -11,28 +20,28 @@ const StyledRange = styled.div`
   background-color: ${props => props.theme.colors.secondary};
 
   width: 100%;
-  height: 2px;
+  height: ${RANGE_HEIGHT};
 `;
 
 const RangeLine = styled.div`
   position: relative;
-  top: 4px;
+  top: ${RANGE_LINE_TOP};
 
   background-color: ${props => props.theme.colors.grey};
 
   width: 100%;
-  height: 2px;
+  height: ${RANGE_HEIGHT};
 `;
 
 const RangeBorder = styled.div<{ position: string }>`
   position: absolute;
-  top: -4px;
+  top: ${RANGE_BORDER_TOP};
   left: ${props => (props.position == 'left' ? '0%' : '100%')};
 
   background-color: ${props => props.theme.colors.secondary};
 
-  width: 2px;
-  height: 10px;
+  width: ${RANGE_BORDER_WIDTH};
+  height: ${RANGE_BORDER_HEIGHT};
 
   cursor: grab;
 `;

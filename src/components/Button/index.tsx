@@ -5,11 +5,16 @@ interface ButtonProps {
   handleClick?: () => void;
   disabled?: boolean;
   type?: string;
+  size: string;
 }
 
-const Button = ({ name, handleClick, disabled, type }: ButtonProps) => {
+const Button = ({ name, handleClick, disabled, type, size }: ButtonProps) => {
   return (
-    <StyledButton disabled={disabled} onClick={handleClick} type={type}>
+    <StyledButton
+      buttonSize={size}
+      disabled={disabled}
+      onClick={handleClick}
+      type={type}>
       {name}
     </StyledButton>
   );

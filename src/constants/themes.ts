@@ -67,6 +67,16 @@ const baseTheme = {
     ...typography,
   },
 
+  gaps: {
+    xxxl: '64px',
+    xxl: '40px',
+    xl: '24px',
+    l: '16px',
+    m: '12px',
+    s: '8px',
+    xs: '4px',
+  },
+
   paddings: {
     l: '40px',
     m: '16px',
@@ -75,6 +85,7 @@ const baseTheme = {
   },
 
   margins: {
+    center: '0 auto',
     xxxl: '128px',
     xxl: '122px',
     xl: '96px',
@@ -82,6 +93,26 @@ const baseTheme = {
     m: '40px',
     s: '16px',
     xs: '6px',
+  },
+
+  buttons: {
+    l: {
+      width: '500px',
+      height: '53px',
+    },
+    m: {
+      width: '288px',
+      height: '53px',
+    },
+    s: {
+      width: '187px',
+      height: '53px',
+    },
+  },
+
+  borders: {
+    1: '1px solid',
+    2: '2px solid',
   },
 
   borderR: {

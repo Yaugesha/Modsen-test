@@ -110,11 +110,12 @@ const Product = () => {
               </Stack>
               <Stack justify="space-between" height={452}>
                 <Description>{data?.description}</Description>
-                <Group gap={16}>
+                <Group gap={16} align="center">
                   <Button
                     disabled={isItemInCart(data)}
                     name={isItemInCart(data) ? 'In cart' : 'Add to cart'}
                     handleClick={handleAddToCart}
+                    size="m"
                   />
                   <>
                     {isItemInCart(data) && (

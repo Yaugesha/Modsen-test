@@ -1,5 +1,8 @@
 import styled, { css } from 'styled-components';
 
+const FORM_GRID_COL_GAP = '94px';
+const FORM_GRID_ROW_GAP = '119px';
+
 const flexForm = css`
   display: flex;
   flex-direction: column;
@@ -13,8 +16,8 @@ const gridForm = css`
     'c d'
     'e e'
     'f f';
-  row-gap: 94px;
-  column-gap: 119px;
+  row-gap: ${FORM_GRID_ROW_GAP};
+  column-gap: ${FORM_GRID_COL_GAP};
 `;
 
 const StyledForm = styled.form<{ type: 'flex' | 'grid' }>`

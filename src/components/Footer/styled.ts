@@ -1,13 +1,19 @@
 import styled from 'styled-components';
 
+const FOOTER_GAP = '50px';
+const FOOTER_WIDTH = '1248px';
+const FOOTER_HEIGHT = '159px';
+const FOOTER_GRID_COL = '32%';
+const FOOTER_GRID_ROW = '41px';
+
 const StyledFooter = styled.footer`
   position: absolute;
   bottom: 0px;
 
   display: grid;
-  grid-template-columns: auto 32%;
-  grid-template-rows: repeat(2, 41px);
-  row-gap: 50px;
+  grid-template-columns: auto ${FOOTER_GRID_COL};
+  grid-template-rows: repeat(2, ${FOOTER_GRID_ROW});
+  row-gap: ${FOOTER_GAP};
   align-items: center;
   justify-content: space-between;
 
@@ -17,8 +23,8 @@ const StyledFooter = styled.footer`
   color: ${props => props.theme.colors.darkGrey};
 
   width: 100%;
-  max-width: 1248px;
-  height: 159px;
+  max-width: ${FOOTER_WIDTH};
+  height: ${FOOTER_HEIGHT};
   padding-top: ${props => props.theme.paddings.l};
 `;
 
@@ -26,7 +32,7 @@ const NavList = styled.ul`
   display: flex;
   flex-flow: wrap;
   align-items: center;
-  column-gap: 41px;
+  column-gap: ${props => props.theme.gaps.xxl};
 
   list-style: none;
   text-transform: uppercase;

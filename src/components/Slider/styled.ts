@@ -1,5 +1,11 @@
 import styled from 'styled-components';
 
+const SLIDER_PAGINATION_BOTTOM = '24px';
+const SLIDER_PAGINATION_GAP = '14px';
+
+const PAGINATION_ITEM_ACTIVE_SIZE = '16px';
+const PAGINATION_ITEM_INACTIVE_SIZE = '10px';
+
 const SliderWrapper = styled.div<{ width: number; height: number }>`
   position: relative;
   display: flex;
@@ -38,27 +44,30 @@ const Image = styled.img<{ size: number }>`
 
 const SliderPagination = styled.div`
   position: absolute;
-  bottom: 24px;
+  bottom: ${SLIDER_PAGINATION_BOTTOM};
 
   display: flex;
   align-items: center;
-  gap: 14px;
+  gap: ${SLIDER_PAGINATION_GAP};
 
   margin: auto;
 `;
 
 const PaginationItemActive = styled.div`
-  width: 16px;
-  height: 16px;
-  border: 2px solid ${props => props.theme.colors.accent};
+  border: ${props => props.theme.borders[2] + props.theme.colors.accent};
   border-radius: ${props => props.theme.borderR.round};
+
+  width: ${PAGINATION_ITEM_ACTIVE_SIZE};
+  height: ${PAGINATION_ITEM_ACTIVE_SIZE};
 `;
 
 const PaginationItemInactive = styled.div`
-  width: 10px;
-  height: 10px;
   background-color: ${props => props.theme.colors.accent};
   border-radius: ${props => props.theme.borderR.round};
+
+  width: ${PAGINATION_ITEM_INACTIVE_SIZE};
+  height: ${PAGINATION_ITEM_INACTIVE_SIZE};
+
   cursor: pointer;
 `;
 

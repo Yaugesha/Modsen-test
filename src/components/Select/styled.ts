@@ -1,9 +1,16 @@
 import styled, { css } from 'styled-components';
 
+const SELECT_CONTAINER_HEIGHT = '54px';
+
+const SELECT_HEIGHT = '24px';
+const SELECT_PADDING = '14px 12px';
+
+const ROTATE_ENGLE = '180deg';
+
 const SelectContainer = styled.div`
   position: relative;
   width: 100%;
-  height: 54px;
+  height: ${SELECT_CONTAINER_HEIGHT};
 `;
 
 const SelectButton = styled.div`
@@ -13,17 +20,17 @@ const SelectButton = styled.div`
 
   ${props => props.theme.typography.m}
 
-  border: 1px solid ${props => props.theme.colors.grey};
+  border: ${props => props.theme.borders[1] + props.theme.colors.grey};
   border-radius: ${props => props.theme.borderR.xs};
 
-  padding: 14px 12px;
-  height: 24px;
+  padding: ${SELECT_PADDING};
+  height: ${SELECT_HEIGHT};
 
   cursor: pointer;
 `;
 
 const rotate = css`
-  transform: rotate(180deg);
+  transform: rotate(${ROTATE_ENGLE});
 `;
 
 const Chevron = styled.img<{ selected: boolean }>`
@@ -36,7 +43,8 @@ const SelectOptions = styled.ul`
   position: relative;
 
   background-color: ${props => props.theme.colors.main};
-  border: 1px solid ${props => props.theme.colors.grey};
+
+  border: ${props => props.theme.borders[1] + props.theme.colors.grey};
   border-radius: ${props => props.theme.borderR.xs};
   list-style: none;
 
@@ -48,7 +56,7 @@ const SelectOption = styled.li`
   ${props => props.theme.typography.m}
   border-radius: ${props => props.theme.borderR.xs};
 
-  padding: 14px 12px;
+  padding: ${SELECT_PADDING};
   cursor: pointer;
 
   &:hover {

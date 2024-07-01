@@ -1,6 +1,10 @@
 import font from '@assets/fonts/DM_Sans/DMSans-VariableFont_opsz,wght.ttf';
 import styled, { createGlobalStyle } from 'styled-components';
 
+const BODY_PADDING = '64px 96px 16px';
+const BODY_WIDTH = '1248px';
+const CONTAINER_PADDING = '0PX 0PX 200px';
+
 const GlobalStyle = createGlobalStyle`
   @font-face {
     font-family: 'DM Sans';
@@ -14,9 +18,9 @@ const GlobalStyle = createGlobalStyle`
     color: ${props => props.theme.colors.secondary};
     background-color: ${props => props.theme.colors.main};
 
-    max-width: 1248px;
-    padding: 64px 96px 16px;
-    margin: 0 auto;
+    max-width: ${BODY_WIDTH};
+    padding: ${BODY_PADDING};
+    margin: ${props => props.theme.margins.center};
   }
 
   * {
@@ -27,6 +31,11 @@ const GlobalStyle = createGlobalStyle`
 
   input {
     background-color: ${props => props.theme.colors.main};
+    border: none;
+    outline: none;
+
+
+    padding: 0px 0px 6px;
 
     &::-webkit-outer-spin-button,
     &::-webkit-inner-spin-button {
@@ -44,8 +53,9 @@ const GlobalStyle = createGlobalStyle`
 
 const Container = styled.div`
   position: relative;
-  min-height: calc(100vh - 280px);
-  padding-bottom: 200px;
+
+  min-height: calc(100vh - ${CONTAINER_PADDING});
+  padding: ${CONTAINER_PADDING};
 `;
 
 export { Container, GlobalStyle };

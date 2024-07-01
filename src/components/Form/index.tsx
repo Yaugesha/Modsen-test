@@ -53,7 +53,7 @@ const Form = ({
         );
       })}
       <FormButton area={() => (type === 'grid' ? 'f' : '')}>
-        <Button name={submitButtonName} type="submit" />
+        <Button name={submitButtonName} type="submit" size="l" />
       </FormButton>
     </StyledForm>
   );

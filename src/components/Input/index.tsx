@@ -1,5 +1,5 @@
 import { InputButton, InputWrapper, StyledInput } from './styled';
-import { InputProps } from './ttypes';
+import { InputProps } from './types';
 
 const Input = ({
   inputHandler,

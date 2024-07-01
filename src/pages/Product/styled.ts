@@ -1,12 +1,21 @@
 import styled from 'styled-components';
 
+const PRODUCT_INFO_HEIGHT = '600px';
+const PRODUCT_INFO_MARGIN_TOP = '128px';
+
+const DESCRIPTION_SECTION_GAP = '72px';
+const DESCRIPTION_SECTION_MARGIN_TOP = '122px';
+
+const SIMILAR_ITEMS_SECTION_GAP = '48px';
+const SIMILAR_ITEMS_SECTION_MARGIN = '96px 0px 250px';
+
 const ProductInfo = styled.section`
   display: flex;
   align-items: start;
   justify-content: space-between;
 
-  height: 600px;
-  margin-top: 128px;
+  height: ${PRODUCT_INFO_HEIGHT};
+  margin-top: ${PRODUCT_INFO_MARGIN_TOP};
 `;
 
 const PhotoContainer = styled.div<{ size: number }>`
@@ -53,9 +62,9 @@ const DescriptionSection = styled.section`
   display: flex;
   flex-flow: column;
   align-items: start;
-  gap: 72px;
+  gap: ${DESCRIPTION_SECTION_GAP};
 
-  margin-top: 122px;
+  margin-top: ${DESCRIPTION_SECTION_MARGIN_TOP};
 `;
 
 const SectionHeading = styled.h3`
@@ -65,9 +74,9 @@ const SectionHeading = styled.h3`
 const SimilarItemsSection = styled.section`
   display: flex;
   flex-flow: column;
-  gap: 48px;
+  gap: ${SIMILAR_ITEMS_SECTION_GAP};
 
-  margin: 96px 0px 250px;
+  margin: ${SIMILAR_ITEMS_SECTION_MARGIN};
 `;
 
 export {

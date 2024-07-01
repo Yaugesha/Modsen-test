@@ -1,17 +1,30 @@
 import styled from 'styled-components';
 
+const HEADER_WIDTH = '1248px';
+const HEADER_HEIGHT = '42px';
+
+const HEADER_NAV_LIST = '182px';
+
+const SWITCHER_WIDTH = '45px';
+const SWITCHER_HEIGHT = '22px';
+const SWITCHER_BUTTON_SIZE = '18px';
+const SWITCHER_BUTTON_TOP = '2px';
+
+const LOGO_WIDTH = '287px';
+const LOGO_HEIGHT = '32px';
+
 const StyledHeader = styled.header`
   display: flex;
   align-items: center;
   justify-content: space-between;
 
-  max-width: 1248px;
-  height: 42px;
+  max-width: ${HEADER_WIDTH};
+  height: ${HEADER_HEIGHT};
 `;
 
 const Logo = styled.img`
-  width: 287px;
-  height: 32px;
+  width: ${LOGO_WIDTH};
+  height: ${LOGO_HEIGHT};
 `;
 
 const NavList = styled.ul`
@@ -21,7 +34,7 @@ const NavList = styled.ul`
 
   list-style: none;
 
-  width: 182px;
+  width: ${HEADER_NAV_LIST};
 `;
 
 const NavItem = styled.li`
@@ -42,22 +55,22 @@ const Switcher = styled.div`
 
   background-color: ${props => props.theme.colors.grey};
 
-  width: 45px;
-  height: 22px;
+  width: ${SWITCHER_WIDTH};
+  height: ${SWITCHER_HEIGHT};
 
   cursor: pointer;
 
   &:before {
     position: absolute;
-    top: 2px;
-    left: var(--left, 2px);
+    top: ${SWITCHER_BUTTON_TOP};
+    left: var(--left, ${SWITCHER_BUTTON_TOP});
 
     content: '';
     background-color: ${props => props.theme.colors.main};
     border-radius: ${props => props.theme.borderR.round};
 
-    width: 18px;
-    height: 18px;
+    width: ${SWITCHER_BUTTON_SIZE};
+    height: ${SWITCHER_BUTTON_SIZE};
   }
 `;
 

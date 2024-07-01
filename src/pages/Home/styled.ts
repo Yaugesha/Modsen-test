@@ -1,7 +1,11 @@
 import styled from 'styled-components';
 
+const PRODUCT_SECTION_MARGIN = '64px 0px 252px';
+
+const SECTION_CONTENT_ROW_GAP = '80px';
+
 const ProductSection = styled.section`
-  margin: 64px 0px 252px;
+  margin: ${PRODUCT_SECTION_MARGIN};
 `;
 
 const SliderSection = styled.div`
@@ -25,7 +29,7 @@ const SectionContent = styled.div`
   display: flex;
   flex-flow: row wrap;
   justify-content: space-between;
-  row-gap: 80px;
+  row-gap: ${SECTION_CONTENT_ROW_GAP};
 `;
 
 const ShopLink = styled.span`

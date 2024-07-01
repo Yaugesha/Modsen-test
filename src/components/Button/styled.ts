@@ -1,15 +1,15 @@
 import styled from 'styled-components';
 
-const StyledButton = styled.button`
+const StyledButton = styled.button<{ buttonSize: 'l' | 'm' | 's' }>`
   background-color: ${props => props.theme.colors.main};
   color: ${props => props.theme.colors.secondary};
   text-transform: uppercase;
 
-  border: 1px solid ${props => props.theme.colors.secondary};
+  border: ${props => props.theme.borders[1] + props.theme.colors.secondary};
   border-radius: ${props => props.theme.borderR.xs};
 
-  width: 288px;
-  height: 32px;
+  width: ${props => props.theme.buttons[props.buttonSize].width};
+  height: ${props => props.theme.buttons[props.buttonSize].height};
 
   transition: all ${props => props.theme.transition.ms400};
   cursor: pointer;

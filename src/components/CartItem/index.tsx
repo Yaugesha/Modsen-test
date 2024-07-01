@@ -37,7 +37,7 @@ const CartItem = ({ product, count }: CartItemProps) => {
           handleDecriment={() => {}}
           handleIncriment={() => {}}
         />
-        <Button name="delete" handleClick={() => {}} />
+        <Button name="delete" handleClick={() => {}} size="s" />
       </Group>
     </StyledCartItem>
   );

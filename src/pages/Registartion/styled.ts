@@ -1,12 +1,15 @@
 import styled from 'styled-components';
 
+const FORM_CONTAINER_WIDTH = '400px';
+const FORM_CONTAINER_GAP = '24px';
+
 const FormContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 24px;
+  gap: ${FORM_CONTAINER_GAP};
 
-  max-width: 400px;
+  max-width: ${FORM_CONTAINER_WIDTH};
   margin: ${props => props.theme.margins.xl} auto
     ${props => props.theme.margins.m};
 `;
