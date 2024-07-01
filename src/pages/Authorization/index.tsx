@@ -3,6 +3,7 @@ import { FormParams } from '@components/Form/types';
 import { AUTHORIZATION_FIELDS } from '@constants/forms';
 import { REGISTRATION_ROUTE } from '@constants/routes';
 import { AuthCredentials } from '@customTypes/authCredentials';
+import { useAppDispatch } from '@hooks/store/useAppDispatch';
 import { auth } from '@services/firebaseApi';
 import { signInWithEmailAndPassword } from 'firebase/auth';
 import { Link } from 'react-router-dom';
@@ -17,6 +18,8 @@ import { AuthorizationForm } from './types';
 import { validationSchema } from './validation';
 
 const Authorization = () => {
+  const dispatch = useAppDispatch();
+
   const initialValues: AuthorizationForm = {
     email: '',
     password: '',
@@ -29,8 +32,11 @@ const Authorization = () => {
 
     signInWithEmailAndPassword(auth, email, password)
       .then(userCredential => {
-        const user = userCredential.user;
-        console.log(user);
+        const user = {
+          isAuthenticated: !userCredential.user.isAnonymous,
+          userId: userCredential.user.uid,
+        };
+        dispatch({ type: 'user/authenticate', payload: user });
       })
       .catch(error => {
         const errorCode = error.code;
