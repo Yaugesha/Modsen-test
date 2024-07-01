@@ -12,7 +12,7 @@ const GlobalStyle = createGlobalStyle`
   body {
     font-family: 'DM Sans', sans-serif;
     color: ${props => props.theme.colors.secondary};
-    background-color: ${props => props.theme.colors.main};;
+    background-color: ${props => props.theme.colors.main};
 
     max-width: 1248px;
     padding: 64px 96px 16px;
@@ -25,14 +25,19 @@ const GlobalStyle = createGlobalStyle`
     text-decoration: none;
   }
 
-  input::-webkit-outer-spin-button,
-  input::-webkit-inner-spin-button {
-    -webkit-appearance: none;
-    margin: 0;
-  }
+  input {
+    background-color: ${props => props.theme.colors.main};
 
-  input[type=number] {
-    -moz-appearance: textfield;
+    &::-webkit-outer-spin-button,
+    &::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+
+      margin: 0;
+    }
+
+    &[type=number] {
+      -moz-appearance: textfield;
+    }
   }
 
 `;

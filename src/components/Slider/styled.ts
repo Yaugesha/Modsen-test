@@ -2,6 +2,8 @@ import styled from 'styled-components';
 
 const SliderWrapper = styled.div<{ width: number; height: number }>`
   position: relative;
+  display: flex;
+  justify-content: center;
 
   width: ${props => props.width}px;
   height: ${props => props.height}px;
@@ -11,6 +13,7 @@ const SliderWrapper = styled.div<{ width: number; height: number }>`
 
 const SliderContent = styled.div<{ gap: number }>`
   position: absolute;
+  left: 0;
   display: flex;
   gap: ${props => props.gap}px;
 
@@ -19,6 +22,7 @@ const SliderContent = styled.div<{ gap: number }>`
 
 const ImageWrapper = styled.div<{ width: number; height: number }>`
   display: flex;
+  align-items: center;
   justify-content: center;
 
   border-radius: ${props => props.theme.borderR.m};
@@ -27,14 +31,14 @@ const ImageWrapper = styled.div<{ width: number; height: number }>`
   height: ${props => props.height}px;
 `;
 
-const Image = styled.img`
-  height: 100%;
+const Image = styled.img<{ size: number }>`
+  max-width: ${props => props.size}px;
+  max-height: ${props => props.size}px;
 `;
 
 const SliderPagination = styled.div`
   position: absolute;
   bottom: 24px;
-  left: 50%;
 
   display: flex;
   align-items: center;

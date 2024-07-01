@@ -22,8 +22,8 @@ const Slider = ({ items, width, height, gap }: SLiderProps) => {
   const [currentItem, setCurrentItem] = useState<Slide>(items[0]);
 
   useEffect(() => {
-    const interval = setTimeout(autoScroll, 3000);
-    return () => clearInterval(interval);
+    const timeout = setTimeout(autoScroll, 3000);
+    return () => clearTimeout(timeout);
   }, [currentItem]);
 
   const toggleSlide = (item: Slide) => {
@@ -48,22 +48,21 @@ const Slider = ({ items, width, height, gap }: SLiderProps) => {
       <SliderContent gap={gap} className="slider">
         {items.map((item: Slide) => (
           <ImageWrapper width={width} height={height} key={item.id}>
-            <Image src={item.image} alt={item.title} />
+            <Image
+              size={width > height ? height : width}
+              src={item.image}
+              alt={item.title}
+            />
           </ImageWrapper>
         ))}
       </SliderContent>
       <SliderPagination>
         {items.map((item: Slide) => {
+          const bindedToggleSlide = toggleSlide.bind(null, item);
           return currentItem.id !== item.id ? (
-            <PaginationItemInactive
-              onClick={() => toggleSlide(item)}
-              key={item.id}
-            />
+            <PaginationItemInactive onClick={bindedToggleSlide} key={item.id} />
           ) : (
-            <PaginationItemActive
-              onClick={() => toggleSlide(item)}
-              key={item.id}
-            />
+            <PaginationItemActive onClick={bindedToggleSlide} key={item.id} />
           );
         })}
       </SliderPagination>
